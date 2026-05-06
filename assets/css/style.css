@@ -752,6 +752,10 @@ body {
     margin: -20px -10px 0 -10px !important;
 }
 
+.testimonial-card h5 {
+    color: var(--text-primary) !important;
+}
+
 .swiper-pagination-bullet {
     background: var(--text-muted) !important;
     opacity: 0.3;
