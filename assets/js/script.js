@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Page Loader Logic
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('loader-wrapper');
+        if (loader) {
+            loader.classList.add('loader-hidden');
+        }
+    });
+
     // Navbar scroll effect
     const navbar = document.getElementById('mainNav');
 
@@ -55,32 +63,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Active link highlighting on scroll
+    // Active link highlighting on scroll (only for index.html sections)
     const sections = document.querySelectorAll('section, header');
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const currentPath = window.location.pathname;
+    const isHomePage = currentPath.endsWith('index.html') || currentPath === '/' || currentPath.endsWith('/');
 
     window.addEventListener('scroll', () => {
-        let current = '';
-        const scrollY = window.pageYOffset;
+        if (isHomePage) {
+            let current = '';
+            const scrollY = window.pageYOffset;
 
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}` || (current === 'home' && link.getAttribute('href') === '#')) {
-                link.classList.add('active');
-            }
-        });
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                link.classList.remove('active');
+                if (href === `#${current}` || (current === 'home' && (href === 'index.html' || href === '#' || href === ''))) {
+                    link.classList.add('active');
+                }
+            });
+        }
     });
 
     // Add smooth reveal animations with stagger effect
-    const animateElements = document.querySelectorAll('.card, .icon-box, .img-wrapper, .accordion-item, .philosophy-quote-card, .how-card, .cert-card, .contact-method-card, .contact-glass-form, .subtitle, h2');
+    const animateElements = document.querySelectorAll('.card, .icon-box, .img-wrapper, .accordion-item, .how-card, .cert-card, .contact-method-card, .contact-glass-form, .subtitle, h2, .journey-card, .journey-stat-card, .cert-glass-panel, .gallery-card, .animateElements');
 
     // Set initial state
     animateElements.forEach(el => {

@@ -19,6 +19,64 @@ body {
     overflow-x: hidden;
 }
 
+/* Page Loader */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-darker);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    visibility: visible;
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.8s;
+}
+
+#loader-wrapper.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    position: relative;
+    text-align: center;
+}
+
+.loader-bubbles span {
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    background: rgba(44, 200, 255, 0.15);
+    border: 1px solid rgba(44, 200, 255, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: bubble-rise 3s infinite ease-in;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes bubble-rise {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.5);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-120px) translateX(20px) scale(1.1);
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-300px) translateX(-20px) scale(1.6);
+        opacity: 0;
+    }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
@@ -54,6 +112,25 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* About Page Responsive Images */
+.about-story-img {
+    height: 450px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.course-detail-img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.instructor-img {
+    height: 600px;
+    object-fit: cover;
+    width: 100%;
 }
 
 /* Section Background Gradients (Sunlight filtering through the ocean) */
@@ -168,6 +245,7 @@ body {
 .text-light-muted {
     color: var(--text-muted) !important;
     opacity: 0.9 !important;
+    font-size: 0.9rem !important;
 }
 
 .border-accent {
@@ -191,6 +269,9 @@ body {
     .py-6 {
         padding-top: 6rem;
         padding-bottom: 6rem;
+    }
+    .text-light-muted {
+        font-size: 1.2rem !important;
     }
 }
 
@@ -362,6 +443,23 @@ body {
     min-height: 700px;
     position: relative;
     padding-top: 80px;
+}
+
+.about-hero {
+    height: 60vh;
+    min-height: 450px;
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 27, 42, 0.4) 0%, var(--bg-dark) 100%);
+    z-index: 0;
 }
 
 /* Hero Animations */
@@ -680,6 +778,76 @@ body {
     transform: scale(1.05);
 }
 
+.journey-card {
+    background: rgba(11, 45, 69, 0.25);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(245, 247, 250, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(44, 200, 255, 0.25);
+}
+
+.journey-image-card {
+    min-height: 560px;
+    overflow: hidden;
+}
+
+.journey-image-card img {
+    min-height: 560px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.journey-image-card:hover img {
+    transform: scale(1.05);
+}
+
+.journey-image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(7, 27, 42, 0) 0%, rgba(7, 27, 42, 0.75) 55%, rgba(7, 27, 42, 0.95) 100%);
+}
+
+.journey-est {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.journey-info-card {
+    background: rgba(7, 27, 42, 0.9) !important;
+    border-color: rgba(245, 247, 250, 0.08) !important;
+}
+
+.journey-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    background: rgba(44, 200, 255, 0.12);
+    border: 1px solid rgba(44, 200, 255, 0.18);
+    color: var(--accent);
+    box-shadow: inset 0 0 5px rgba(44, 200, 255, 0.12);
+}
+
+.journey-stat-card {
+    background: rgba(11, 45, 69, 0.4);
+    border: 1px solid rgba(245, 247, 250, 0.06);
+    min-height: 140px;
+}
+
+.journey-stat-card span {
+    display: block;
+}
+
 .blur-glow {
     filter: blur(100px);
     pointer-events: none;
@@ -871,6 +1039,72 @@ body {
     opacity: 1;
 }
 
+/* Gallery Styles - Immersive Masonry Layout */
+.gallery-masonry-container {
+    columns: 1;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .gallery-masonry-container {
+        columns: 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery-masonry-container {
+        columns: 3;
+    }
+}
+
+.gallery-card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(245, 247, 250, 0.05);
+    background: rgba(7, 27, 42, 0.5);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08);
+}
+
+@media (max-width: 991.98px) {
+    .gallery-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .gallery-item-1,
+    .gallery-item-2,
+    .gallery-item-3,
+    .gallery-item-4,
+    .gallery-item-5,
+    .gallery-item-6 {
+        grid-column: span 6;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        width: 100%;
+    }
+}
+
 /* WhatsApp Floating Button */
 .whatsapp-float {
     position: fixed;
@@ -935,6 +1169,11 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
+    .navbar {
+        padding: 0.75rem 0 !important;
+        background-color: transparent;
+    }
+
     .navbar-logo {
         height: 70px;
     }
@@ -997,18 +1236,14 @@ body {
         transform: rotate(-135deg);
     }
 
-    .navbar {
-        background-color: transparent;
-    }
-
     .navbar-collapse {
-        background: rgba(11, 45, 69, 0.7) !important;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        margin-top: 1.5rem;
-        padding: 2.5rem 1.5rem;
-        border-radius: 2rem;
-        border: 1px solid rgba(245, 247, 250, 0.08) !important;
+        background: rgba(4, 15, 24, 0.98) !important;
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        margin-top: 1rem;
+        padding: 2rem 1rem;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(44, 200, 255, 0.15) !important;
         text-align: center;
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
         transition: height 0.35s ease, opacity 0.3s ease, transform 0.3s ease;
@@ -1024,8 +1259,12 @@ body {
         transform: translateY(0);
     }
 
+    .navbar-collapse .nav-social {
+        margin-top: 1.5rem;
+    }
+
     .navbar-nav .nav-link {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         margin-bottom: 0.5rem;
         display: inline-block;
     }
@@ -1083,11 +1322,41 @@ body {
         font-size: 5rem;
         top: -5px;
     }
+
+    .about-hero {
+        background-attachment: scroll;
+        height: 50vh;
+    }
+
+    .about-hero h1 {
+        font-size: 3rem !important;
+    }
+
+    .about-story-img {
+        height: 350px;
+    }
+
+    .course-detail-img {
+        height: 350px;
+    }
+
+    .instructor-img {
+        height: 500px;
+    }
+
+    .journey-image-card, .journey-image-card img {
+        min-height: 450px !important;
+    }
+
+    .journey-stat-card {
+        min-height: auto;
+        padding: 1.5rem !important;
+    }
 }
 
 @media (max-width: 575.98px) {
     .navbar-logo {
-        height: 60px;
+        height: 50px;
     }
 
     .navbar.scrolled .navbar-logo {
@@ -1108,5 +1377,25 @@ body {
         bottom: 20px;
         right: 20px;
         font-size: 25px;
+    }
+
+    .about-hero h1 {
+        font-size: 2.25rem !important;
+    }
+
+    .about-story-img {
+        height: 280px;
+    }
+
+    .course-detail-img {
+        height: 280px;
+    }
+
+    .instructor-img {
+        height: 400px;
+    }
+
+    .journey-image-card, .journey-image-card img {
+        min-height: 350px !important;
     }
 }

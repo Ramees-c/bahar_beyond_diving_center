@@ -34,13 +34,26 @@
   </head>
 
   <body class="bg-dark-theme text-white">
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+      <div class="loader-content">
+        <div class="loader-bubbles">
+          <span style="left: -30px; width: 20px; height: 20px; animation-delay: 0s;"></span>
+          <span style="left: 50px; width: 12px; height: 12px; animation-delay: 0.4s;"></span>
+          <span style="left: 10px; width: 16px; height: 16px; animation-delay: 1.2s;"></span>
+          <span style="left: -60px; width: 10px; height: 10px; animation-delay: 1.8s;"></span>
+          <span style="left: 80px; width: 22px; height: 22px; animation-delay: 2.2s;"></span>
+        </div>
+      </div>
+    </div>
+
     <!-- Navigation -->
     <nav
       class="navbar navbar-expand-lg navbar-dark fixed-top"
       id="mainNav"
     >
       <div class="container">
-        <a class="navbar-brand" href="#home">
+        <a class="navbar-brand" href="index.html">
           <img
             src="assets/images/dive with afshin logo-02.png"
             alt="Diving With Afshin Logo"
@@ -60,22 +73,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3 gap-lg-5">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link active" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#courses">Courses</a>
+              <a class="nav-link" href="courses.html">Courses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#packages">Packages</a>
+              <a class="nav-link" href="packages.html">Packages</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#gallery">Gallery</a>
+              <a class="nav-link" href="gallery.html">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
           <div class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start nav-social">
@@ -191,8 +204,8 @@
             <p class="subtitle text-accent mb-2 ls-2 fw-semibold">
               THE STORY
             </p>
-            <h2 class="mb-4 fw-semibold fs-2 font-outfit">Passion For The Ocean</h2>
-            <p class="text-light-muted opacity-75 mb-5 fs-6 lh-lg">
+            <h2 class="mb-4 fw-semibold fs-1 font-outfit">Passion For The Ocean</h2>
+            <p class="text-light-muted opacity-75 mb-5 fs-6">
               What started as a career in business development eventually gave way to the call of the sea. I made the bold decision to become a professional scuba diving instructor, dedicating my life to sharing the underwater world. With hundreds of certifications across Southeast Asia and the Middle East, my goal is to help you discover a deeper connection with the ocean.
             </p>
 
@@ -288,7 +301,7 @@
       <div class="container">
         <div class="text-center mb-5">
           <p class="subtitle text-accent mb-2 ls-2 fw-semibold">HOW IT WORKS</p>
-          <h2 class="mb-4 fw-semibold fs-2 font-outfit">
+          <h2 class="mb-4 fw-semibold fs-1 font-outfit">
             Your Journey to the Deep
           </h2>
         </div>
@@ -390,16 +403,9 @@
     <!-- Courses Section -->
     <section class="py-6 bg-darker" id="courses">
       <div class="container">
-        <div class="d-flex justify-content-between align-items-end mb-5">
-          <div>
-            <p class="subtitle text-accent mb-2 ls-2 fw-semibold">EDUCATION</p>
-            <h2 class="mb-0 fw-semibold fs-2 font-outfit">PADI Diving Courses</h2>
-          </div>
-          <a
-            href="#"
-            class="text-accent text-decoration-none border-bottom border-accent pb-1"
-            >View All Details</a
-          >
+        <div class="text-center mb-5">
+          <p class="subtitle text-accent mb-2 ls-2 fw-semibold">EDUCATION</p>
+          <h2 class="mb-0 fw-semibold fs-1 font-outfit">PADI Diving Courses</h2>
         </div>
 
         <div class="row g-4">
@@ -448,7 +454,7 @@
                   </div>
                 </div>
                 <a
-                  href="#"
+                  href="courses.html#discovery-scuba-diving"
                   class="btn btn-accent w-100 rounded-pill py-2 fw-medium"
                   >Enroll Now</a
                 >
@@ -501,7 +507,7 @@
                   </div>
                 </div>
                 <a
-                  href="#"
+                  href="courses.html#padi-open-water"
                   class="btn btn-accent w-100 rounded-pill py-2 fw-medium"
                   >Enroll Now</a
                 >
@@ -555,7 +561,7 @@
                   </div>
                 </div>
                 <a
-                  href="#"
+                  href="courses.html#padi-advanced-open-water"
                   class="btn btn-accent w-100 rounded-pill py-2 fw-medium"
                   >Enroll Now</a
                 >
@@ -571,7 +577,7 @@
       <div class="container">
         <div class="text-center mb-5">
           <p class="subtitle text-accent mb-2 ls-2 fw-semibold">EXCLUSIVE TRIPS</p>
-          <h2 class="mb-4 fw-semibold fs-2 font-outfit">Daymaniyat Island Adventures</h2>
+          <h2 class="mb-4 fw-semibold fs-1 font-outfit">Daymaniyat Island Adventures</h2>
           <p class="text-light-muted opacity-75 mx-auto" style="max-width: 600px;">
             Experience the untouched beauty of Oman’s most stunning marine reserve on a private boat trip designed for relaxation and exploration.
           </p>
@@ -646,7 +652,7 @@
             <p class="subtitle text-accent mb-2 ls-2 fw-semibold">
               ACCREDITATION
             </p>
-            <h2 class="mb-4 fw-semibold fs-2 font-outfit">PADI Standards</h2>
+            <h2 class="mb-4 fw-semibold fs-1 font-outfit">PADI Standards</h2>
             <p class="text-light-muted opacity-75">
               All courses follow PADI's world-class curriculum, ensuring your safety and global recognition.
             </p>
@@ -658,9 +664,9 @@
               class="cert-glass-panel d-flex justify-content-center align-items-center gap-4 gap-md-5 flex-wrap"
             >
               <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/PADI_logo.svg/1200px-PADI_logo.svg.png"
+                src="assets/padi_logo.png"
                 alt="PADI"
-                class="cert-logo-modern" style="filter: brightness(0) invert(1); max-height: 70px;"
+                class="cert-logo-modern"
               />
               <div class="cert-divider d-none d-md-block"></div>
               <span class="h4 fw-bold font-outfit mb-0">Emergency First Response</span>
@@ -743,7 +749,7 @@
         >
           COMMUNITY
         </p>
-        <h2 class="mb-5 fw-semibold fs-2 font-outfit">Student Stories</h2>
+        <h2 class="mb-5 fw-semibold fs-1 font-outfit">Student Stories</h2>
 
         <div class="swiper testimonials-swiper">
           <div class="swiper-wrapper text-start">
@@ -846,7 +852,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="pb-6" id="faq">
+    <section class="py-6" id="faq">
       <div class="container">
         <div class="row align-items-center gy-5">
           <div class="col-lg-5">
@@ -863,7 +869,7 @@
             <p class="subtitle text-accent mb-2 ls-2 fw-semibold">
               COMMON QUESTIONS
             </p>
-            <h2 class="mb-5 fw-semibold fs-2 font-outfit">
+            <h2 class="mb-5 fw-semibold fs-1 font-outfit">
               Frequently Asked Questions
             </h2>
             <div class="accordion faq-accordion" id="faqAccordion">
@@ -960,7 +966,7 @@
               GET IN TOUCH
             </p>
             <h2 class="mb-4 fw-semibold fs-1 font-outfit">Let's Dive Deeper</h2>
-            <p class="text-light-muted opacity-75 mb-5 fs-6 lh-lg">
+            <p class="text-light-muted opacity-75 mb-5 fs-6">
               Whether you're curious about a specific course or ready to book
               your next underwater adventure, we're here to guide you.
             </p>
@@ -1088,7 +1094,7 @@
       <div class="container">
         <div class="row gy-4 mb-5">
           <div class="col-lg-4 pe-lg-5">
-            <a href="#home" class="d-inline-block mb-4">
+            <a href="index.html" class="d-inline-block mb-4">
               <img
                 src="assets/images/dive with afshin logo-02.png"
                 alt="Diving With Afshin Logo"
@@ -1105,25 +1111,25 @@
             </div>
           </div>
           <div class="col-lg-3 offset-lg-1 col-md-6">
-            <h5 class="text-white mb-3 fs-6">Quick Links</h5>
+            <h5 class="text-white mb-3 fs-5 fw-bold">Quick Links</h5>
             <ul class="list-unstyled d-flex flex-column gap-2">
               <li>
                 <a
-                  href="#"
+                  href="index.html"
                   class="text-light-muted opacity-75 text-white-hover text-decoration-none"
                   >Home</a
                 >
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="about.html"
                   class="text-light-muted opacity-75 text-white-hover text-decoration-none"
                   >About</a
                 >
               </li>
               <li>
                 <a
-                  href="#courses"
+                  href="courses.html"
                   class="text-light-muted opacity-75 text-white-hover text-decoration-none"
                   >Courses</a
                 >
@@ -1137,14 +1143,14 @@
               </li>
               <li>
                 <a
-                  href="#gallery"
+                  href="gallery.html"
                   class="text-light-muted opacity-75 text-white-hover text-decoration-none"
                   >Gallery</a
                 >
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="contact.html"
                   class="text-light-muted opacity-75 text-white-hover text-decoration-none"
                   >Contact</a
                 >
@@ -1152,7 +1158,7 @@
             </ul>
           </div>
           <div class="col-lg-4 col-md-6">
-            <h5 class="text-white mb-3 fs-6">Location</h5>
+            <h5 class="text-white mb-3 fs-5 fw-bold">Location</h5>
             <address class="text-light-muted opacity-75 mb-3">
               Al Mouj Marina,<br />
               Muscat, Oman
@@ -1166,10 +1172,7 @@
         <div
           class="border-top border-secondary border-opacity-25 pt-4 text-center"
         >
-          <p
-            class="text-light-muted opacity-50 mb-0"
-            style="font-size: 0.85rem"
-          >
+          <p class="text-light-muted opacity-50 mb-0" style="font-size: 0.55rem">
             &copy; 2024 Diving With Afshin. All rights reserved.
           </p>
         </div>
