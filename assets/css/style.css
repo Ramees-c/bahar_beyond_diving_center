@@ -103,6 +103,11 @@ body {
     scrollbar-color: var(--accent) var(--bg-darker);
 }
 
+.lead {
+    font-size: clamp(1.1rem, 1.2vw + 0.8rem, 1.25rem);
+    line-height: 1.7;
+}
+
 /* Typography Utilities */
 .font-outfit {
     font-family: var(--font-heading) !important;
@@ -246,7 +251,8 @@ body {
 .text-light-muted {
     color: var(--text-muted) !important;
     opacity: 0.9 !important;
-    font-size: 0.9rem !important;
+    font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.15rem) !important;
+    line-height: 1.7;
 }
 
 .border-accent {
@@ -271,9 +277,6 @@ body {
         padding-top: 6rem;
         padding-bottom: 6rem;
     }
-    .text-light-muted {
-        font-size: 1.2rem !important;
-    }
 }
 
 .min-h-250 {
@@ -282,6 +285,16 @@ body {
 
 .fs-sm {
     font-size: 0.875rem;
+}
+
+.copyright-text {
+    font-size: 0.75rem !important;
+}
+
+@media (min-width: 992px) {
+    .copyright-text {
+        font-size: 0.9rem !important;
+    }
 }
 
 .text-white-hover {
@@ -444,6 +457,7 @@ body {
     min-height: 700px;
     position: relative;
     padding-top: 80px;
+    z-index: 1;
 }
 
 .about-hero {
@@ -1366,10 +1380,6 @@ body {
 
     .hero h1 {
         font-size: 2.5rem !important;
-    }
-
-    .hero .lead {
-        font-size: 1rem;
     }
 
     .whatsapp-float {
