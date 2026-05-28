@@ -161,6 +161,74 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Gallery Lightbox Logic
+    const galleryMasonry = document.querySelector('.gallery-masonry-container');
+    if (galleryMasonry) {
+        const modalElement = document.getElementById('galleryModal');
+        const mainWrapper = document.getElementById('gallery-wrapper-main');
+        const thumbsWrapper = document.getElementById('gallery-wrapper-thumbs');
+        let gallerySwiper = null;
+        let thumbsSwiper = null;
+
+        const initGallerySwipers = () => {
+            if (gallerySwiper) return; // Initialize only once
+
+            const images = galleryMasonry.querySelectorAll('.gallery-card img');
+            images.forEach(img => {
+                const mainSlide = `<div class="swiper-slide d-flex align-items-center justify-content-center">
+                    <img src="${img.src}" alt="${img.alt}">
+                </div>`;
+                const thumbSlide = `<div class="swiper-slide">
+                    <img src="${img.src}" alt="${img.alt}">
+                </div>`;
+                mainWrapper.insertAdjacentHTML('beforeend', mainSlide);
+                thumbsWrapper.insertAdjacentHTML('beforeend', thumbSlide);
+            });
+
+            thumbsSwiper = new Swiper('.gallery-thumbs-swiper', {
+                spaceBetween: 10,
+                slidesPerView: 3, // Default for very small screens
+                freeMode: true,
+                watchSlidesProgress: true,
+                breakpoints: {
+                    400: { slidesPerView: 4 },
+                    576: { slidesPerView: 5 },
+                    768: { slidesPerView: 7 },
+                    1200: { slidesPerView: 10 }
+                }
+            });
+
+            gallerySwiper = new Swiper('.gallery-main-swiper', {
+                spaceBetween: 10,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                keyboard: {
+                    enabled: true,
+                },
+                thumbs: {
+                    swiper: thumbsSwiper,
+                },
+            });
+        };
+
+        const cards = galleryMasonry.querySelectorAll('.gallery-card');
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                initGallerySwipers();
+                const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+                modal.show();
+                
+                modalElement.addEventListener('shown.bs.modal', () => {
+                    gallerySwiper.update();
+                    thumbsSwiper.update();
+                    gallerySwiper.slideTo(index, 0);
+                }, { once: true });
+            });
+        });
+    }
+
     // Contact Form Validation
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {

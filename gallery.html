@@ -23,6 +23,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -82,26 +87,57 @@
       <div class="container-fluid px-3 px-md-5">
         <div class="gallery-masonry-container">
           <div class="gallery-card shadow-lg">
-            <img src="https://images.unsplash.com/photo-1544551763-8dd44758c2dd?auto=format&fit=crop&w=1200&q=80" alt="Sea Turtle">
+            <img src="https://images.unsplash.com/photo-1544551763-8dd44758c2dd?auto=format&fit=crop&w=1200&q=80" alt="Sea Turtle" loading="lazy">
           </div>
           <div class="gallery-card shadow-lg">
-            <img src="https://images.unsplash.com/photo-1517627043994-b991abb62fc8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGl2aW5nfGVufDB8fDB8fHww" alt="Meditative Diver">
+            <img src="https://images.unsplash.com/photo-1517627043994-b991abb62fc8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGl2aW5nfGVufDB8fDB8fHww" alt="Meditative Diver" loading="lazy">
           </div>
           <div class="gallery-card shadow-lg">
-            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80" alt="Private Boat">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80" alt="Private Boat" loading="lazy">
           </div>
           <div class="gallery-card shadow-lg">
-            <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=1200&q=80" alt="Coral Reef">
+            <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=1200&q=80" alt="Coral Reef" loading="lazy">
           </div>
           <div class="gallery-card shadow-lg">
-            <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=1200&q=80" alt="Diver Training">
+            <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=1200&q=80" alt="Diver Training" loading="lazy">
           </div>
           <div class="gallery-card shadow-lg">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Ocean Sunset">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Ocean Sunset" loading="lazy">
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-darker border-0">
+          <div class="modal-header border-0 position-absolute top-0 end-0 z-3">
+            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-column justify-content-center p-0 overflow-hidden">
+            <!-- Main Slider -->
+            <div class="swiper gallery-main-swiper">
+              <div class="swiper-wrapper" id="gallery-wrapper-main">
+                <!-- Slides will be injected by JavaScript -->
+              </div>
+              <!-- Navigation Buttons -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Thumbnails Slider -->
+            <div class="container-fluid mt-4 px-4">
+              <div class="swiper gallery-thumbs-swiper">
+                <div class="swiper-wrapper" id="gallery-wrapper-thumbs">
+                  <!-- Thumbnails will be injected by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer
@@ -200,6 +236,8 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
