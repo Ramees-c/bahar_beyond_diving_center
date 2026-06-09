@@ -105,6 +105,31 @@ document.addEventListener('DOMContentLoaded', function () {
     let delayCounter = 0;
     let delayTimer = null;
 
+    function startCounter(el) {
+        if (el.dataset.started) return;
+        el.dataset.started = 'true';
+
+        const target = +el.getAttribute('data-target');
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 1500; // Animation duration in ms
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const value = Math.floor(progress * target);
+            
+            el.textContent = value + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = target + suffix;
+            }
+        }
+        requestAnimationFrame(update);
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -116,6 +141,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 requestAnimationFrame(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+
+                    // Start counter for any .counter elements found within the revealing container
+                    entry.target.querySelectorAll('.counter').forEach(counter => {
+                        startCounter(counter);
+                    });
                 });
 
                 observer.unobserve(entry.target);
