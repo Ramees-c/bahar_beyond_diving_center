@@ -1,4 +1,75 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Course Details Data
+    const courseData = {
+        'discovery-scuba': {
+            title: 'Discovery Scuba Diving',
+            price: '50 OMR',
+            level: 'Beginner',
+            duration: 'Half Day',
+            depth: '12 Meters',
+            age: '10 Years',
+            overview: 'A supervised, non-certification program for first-timers. Learn the basics and take your first guided underwater breath in the beautiful waters of Oman.',
+            includes: ['Theory session', 'Equipment rental', 'Supervised shallow dive', 'Refreshments'],
+            requirements: ['Basic comfort in water', 'Good physical health', 'Signed medical release']
+        },
+        'open-water': {
+            title: 'PADI Open Water Diver',
+            price: '200 OMR',
+            level: 'Certification',
+            duration: '3-5 Days',
+            depth: '18 Meters',
+            age: '10 Years',
+            overview: "The world's most popular entry-level scuba certification. Qualifies you to dive independently with a buddy anywhere in the world.",
+            includes: ['PADI eLearning materials', 'Confined water training', '4 Open water dives', 'Logbook & Certification card'],
+            requirements: ['Swim 200m without aids', 'Float for 10 mins', 'Medical statement completion']
+        },
+        'advanced-open-water': {
+            title: 'Advanced Open Water',
+            price: '190 OMR',
+            level: 'Advanced',
+            duration: '2-3 Days',
+            depth: '30 Meters',
+            age: '12 Years',
+            overview: 'Expand your horizons with 5 specialized adventure dives. Build confidence and expand your scuba skills in new environments.',
+            includes: ['Advanced eLearning', 'Deep dive specialty', 'Navigation specialty', '3 Adventure dives of your choice'],
+            requirements: ['PADI Open Water certification (or equivalent)', 'Min age 12-15 (Junior) or 15+']
+        }
+    };
+
+    // Course Modal Logic
+    const courseModal = document.getElementById('courseDetailModal');
+    if (courseModal) {
+        courseModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const courseId = button.getAttribute('data-course');
+            const data = courseData[courseId];
+
+            if (!data) return;
+
+            // Update content
+            courseModal.querySelector('#modalCourseTitle').textContent = data.title;
+            courseModal.querySelector('#modalCoursePrice').textContent = data.price;
+            courseModal.querySelector('#modalCourseLevel').textContent = data.level;
+            courseModal.querySelector('#modalCourseDuration').textContent = data.duration;
+            courseModal.querySelector('#modalCourseDepth').textContent = data.depth;
+            courseModal.querySelector('#modalCourseAge').textContent = data.age;
+            courseModal.querySelector('#modalCourseOverview').textContent = data.overview;
+
+            // Build lists
+            const buildList = (containerId, items) => {
+                const container = courseModal.querySelector(`#${containerId}`);
+                if (container) {
+                    container.innerHTML = items.map(item => 
+                        `<li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i>${item}</li>`
+                    ).join('');
+                }
+            };
+
+            buildList('modalCourseIncludes', data.includes);
+            buildList('modalCourseRequirements', data.requirements);
+        });
+    }
+
     // Page Loader Logic
     window.addEventListener('load', function() {
         const loader = document.getElementById('loader-wrapper');
