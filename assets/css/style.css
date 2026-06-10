@@ -1853,11 +1853,6 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
       transform 0.3s ease;
   }
 
-/* Remove all shadows globally */
-.shadow, .shadow-sm, .shadow-lg, .shadow-none, [class*="shadow-"] {
-  box-shadow: none !important;
-}
-
   .navbar-collapse.collapsing {
     opacity: 0;
     transform: translateY(-10px);
@@ -2076,40 +2071,99 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
 
 .course-modal::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Prevent Bootstrap from adding reserved padding space when modal is open */
+.modal-open {
+  padding-right: 0 !important;
+}
+
+.modal-open .course-modal,
+.modal-open .fixed-top {
+  padding-right: 0 !important; /* Prevent navbar shift */
+}
+
+#modalCourseTitle {
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .course-modal .modal-content {
-  background: linear-gradient(145deg, rgba(var(--bg-card-rgb), 0.9) 0%, rgba(var(--bg-dark-rgb), 0.95) 100%) !important;
+  background: linear-gradient(165deg, rgba(var(--bg-dark-rgb), 0.98) 0%, rgba(var(--bg-darker-rgb), 1) 100%) !important;
   backdrop-filter: blur(25px) saturate(160%);
   -webkit-backdrop-filter: blur(25px) saturate(160%);
-  border: 1px solid rgba(var(--accent-rgb), 0.2) !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.15) !important;
   border-radius: 2rem !important;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 0 80px rgba(var(--accent-rgb), 0.03) !important;
 }
-
 .course-modal .modal-header, 
 .course-modal .modal-footer {
   border: none !important;
 }
 
 .course-modal .btn-close {
-  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   padding: 0.8rem;
-  margin: 1rem;
-  transition: all 0.3s ease;
+  margin: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 1;
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+}
+
+@media (max-width: 575.98px) {
+  .course-modal .btn-close {
+    padding: 0.6rem;
+    margin: 0.75rem;
+  }
+  .course-modal .modal-body {
+    padding: 3rem 1.25rem 1.5rem !important;
+  }
 }
 
 .course-modal .btn-close:hover {
   background-color: var(--accent);
   transform: rotate(90deg);
+  border-color: var(--accent);
 }
 
 .modal-summary-item {
-  background: rgba(var(--bg-darker-rgb), 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  padding: 1rem;
+  background: rgba(var(--text-primary-rgb), 0.03);
+  border: 1px solid rgba(var(--text-primary-rgb), 0.05);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 575.98px) {
+  .modal-summary-item {
+    padding: 1rem;
+  }
+}
+
+.modal-summary-item:hover {
+  background: rgba(var(--accent-rgb), 0.05);
+  border-color: rgba(var(--accent-rgb), 0.2);
+  transform: translateX(5px);
+}
+
+.modal-sidebar-card {
+  background: rgba(var(--bg-card-rgb), 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.1);
+}
+
+@media (min-width: 992px) {
+  .modal-sidebar-card {
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+.icon-sm {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 /* Increase modal width on extra large screens */
