@@ -27,20 +27,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-      .upload-zone {
-        border: 2px dashed rgba(var(--accent-rgb), 0.3);
-        background: rgba(var(--bg-card-rgb), 0.1);
-        border-radius: 1.5rem;
-        padding: 3rem 1.5rem;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .upload-zone:hover, .upload-zone.dragover {
-        border-color: var(--accent);
-        background: rgba(var(--bg-card-rgb), 0.2);
-        transform: scale(1.01);
-      }
       .preview-item {
         position: relative;
         aspect-ratio: 1;
@@ -108,7 +94,7 @@
         </div>
 
         <div class="row justify-content-center">
-          <div class="col-lg-10">
+          <div class="col-12">
             <div class="contact-glass-form p-4 p-md-5 animateElements">
               <div id="dropZone" class="upload-zone mb-4" onclick="document.getElementById('fileInput').click()">
                 <i class="bi bi-cloud-arrow-up text-accent display-4 mb-3 d-block"></i>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Form | Admin | Diving With Afshin</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-dark-theme text-white d-flex flex-column min-vh-100">
+  <!-- Page Loader -->
+  <div id="loader-wrapper">
+    <div class="loader-content">
+      <div class="loader-bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-secondary border-opacity-10 py-3">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/dive with afshin logo-02.png" alt="Logo" class="navbar-logo" />
+      </a>
+      <div class="ms-auto d-flex align-items-center">
+        <a href="admin_dashboard.html" class="text-accent text-decoration-none me-4 d-none d-sm-inline fw-semibold ls-1">
+          <i class="bi bi-grid-fill me-2"></i>DASHBOARD
+        </a>
+        <a href="admin_login.html" class="btn btn-outline-light rounded-pill px-4 py-2 fw-medium">
+          <i class="bi bi-box-arrow-right me-2"></i>LOGOUT
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+      <!-- Header -->
+      <div class="mb-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-2 fs-sm">
+            <li class="breadcrumb-item"><a href="admin_dashboard.html" class="text-light-muted text-decoration-none">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="admin_courses.html" class="text-light-muted text-decoration-none">Courses</a></li>
+            <li class="breadcrumb-item active text-accent" aria-current="page">Add New</li>
+          </ol>
+        </nav>
+        <h1 class="h2 fw-bold font-outfit mb-0 text-white">Add New Course</h1>
+      </div>
+
+      <!-- Form Container -->
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="contact-glass-form p-4 p-md-5 animateElements">
+            <form id="courseForm" class="needs-validation" novalidate>
+              <div class="row g-4">
+                
+                <!-- Section: Course Identity -->
+                <div class="col-12 mb-2">
+                  <h5 class="font-outfit fw-bold text-accent d-flex align-items-center gap-2 mb-0">
+                    <i class="bi bi-info-circle"></i> Course Identity
+                  </h5>
+                  <hr class="border-secondary opacity-25 mt-2">
+                </div>
+
+                <div class="col-md-8">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Course Title</label>
+                  <input type="text" class="form-control custom-input py-3 px-4 rounded-3 text-white" placeholder="e.g. PADI Open Water Diver" required />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Course Level</label>
+                  <input type="text" class="form-control custom-input py-3 px-4 rounded-3 text-white" placeholder="e.g. Beginner" required />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Overview</label>
+                  <textarea class="form-control custom-input py-3 px-4 rounded-3 text-white" rows="3" placeholder="Provide a brief, engaging description of the course..." required></textarea>
+                </div>
+
+                <!-- Section: Media -->
+                <div class="col-12 mt-4 mb-2">
+                  <h5 class="font-outfit fw-bold text-accent d-flex align-items-center gap-2 mb-0">
+                    <i class="bi bi-image"></i> Media
+                  </h5>
+                  <hr class="border-secondary opacity-25 mt-2">
+                </div>
+
+                <div class="col-12">
+                  <div class="upload-zone mb-2 py-4" onclick="document.getElementById('courseImageInput').click()">
+                    <i class="bi bi-cloud-upload text-accent display-6 mb-2 d-block"></i>
+                    <p class="mb-0 fs-sm text-light-muted">Click to upload or drag & drop course cover image</p>
+                    <input type="file" id="courseImageInput" accept="image/*" hidden required>
+                  </div>
+                  <div id="imagePreview" class="d-none mt-3">
+                    <div class="position-relative d-inline-block">
+                      <img src="" alt="Preview" class="img-fluid rounded-4 border border-secondary border-opacity-25 shadow-sm" style="max-height: 250px; width: auto; display: block;">
+                      <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2 rounded-circle d-flex align-items-center justify-content-center" id="clearPreview" style="width: 28px; height: 28px;">
+                        <i class="bi bi-x fs-5"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Section: Specifications -->
+                <div class="col-12 mt-4 mb-2">
+                  <h5 class="font-outfit fw-bold text-accent d-flex align-items-center gap-2 mb-0">
+                    <i class="bi bi-list-stars"></i> Course Specifications
+                  </h5>
+                  <hr class="border-secondary opacity-25 mt-2">
+                </div>
+
+                <div class="col-md-3 col-6">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Price (OMR)</label>
+                  <input type="text" class="form-control custom-input py-3 px-4 rounded-3 text-white" placeholder="200 OMR" required />
+                </div>
+                <div class="col-md-3 col-6">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Duration</label>
+                  <input type="text" class="form-control custom-input py-3 px-4 rounded-3 text-white" placeholder="3-5 Days" required />
+                </div>
+                <div class="col-md-3 col-6">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Max Depth</label>
+                  <input type="text" class="form-control custom-input py-3 px-4 rounded-3 text-white" placeholder="18 Meters" required />
+                </div>
+                <div class="col-md-3 col-6">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Min. Age</label>
+                  <input type="text" class="form-control custom-input py-3 px-4 rounded-3 text-white" placeholder="10 Years" required />
+                </div>
+
+                <!-- Section: Detailed Content -->
+                <div class="col-12 mt-4 mb-2">
+                  <h5 class="font-outfit fw-bold text-accent d-flex align-items-center gap-2 mb-0">
+                    <i class="bi bi-card-checklist"></i> Detailed Content
+                  </h5>
+                  <hr class="border-secondary opacity-25 mt-2">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Included</label>
+                  <div id="included-fields-container">
+                    <div class="input-group mb-2">
+                      <input type="text" class="form-control custom-input rounded-start-3 text-white" placeholder="e.g. PADI eLearning" name="included[]" required>
+                      <button type="button" class="btn btn-outline-danger remove-field-btn border-start-0 rounded-end-3 px-3" style="display: none;"><i class="bi bi-x"></i></button>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-accent add-field-btn mt-2" data-target="included-fields-container" data-name="included[]" data-placeholder="e.g. PADI eLearning">
+                    <i class="bi bi-plus-lg me-1"></i> Add more
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Requirements</label>
+                  <div id="requirements-fields-container">
+                    <div class="input-group mb-2">
+                      <input type="text" class="form-control custom-input rounded-start-3 text-white" placeholder="e.g. Swimming ability" name="requirements[]" required>
+                      <button type="button" class="btn btn-outline-danger remove-field-btn border-start-0 rounded-end-3 px-3" style="display: none;"><i class="bi bi-x"></i></button>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-accent add-field-btn mt-2" data-target="requirements-fields-container" data-name="requirements[]" data-placeholder="e.g. Swimming ability">
+                    <i class="bi bi-plus-lg me-1"></i> Add more
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">What You'll Learn</label>
+                  <div id="will-learn-fields-container">
+                    <div class="input-group mb-2">
+                      <input type="text" class="form-control custom-input rounded-start-3 text-white" placeholder="e.g. Buoyancy control" name="willLearn[]" required>
+                      <button type="button" class="btn btn-outline-danger remove-field-btn border-start-0 rounded-end-3 px-3" style="display: none;"><i class="bi bi-x"></i></button>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-accent add-field-btn mt-2" data-target="will-learn-fields-container" data-name="willLearn[]" data-placeholder="e.g. Buoyancy control">
+                    <i class="bi bi-plus-lg me-1"></i> Add more
+                  </button>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <label class="form-label text-light-muted fs-sm ms-1 mb-2">Benefits</label>
+                  <div id="benefits-fields-container">
+                    <div class="input-group mb-2">
+                      <input type="text" class="form-control custom-input rounded-start-3 text-white" placeholder="e.g. Global recognition" name="benefits[]" required>
+                      <button type="button" class="btn btn-outline-danger remove-field-btn border-start-0 rounded-end-3 px-3" style="display: none;"><i class="bi bi-x"></i></button>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-accent add-field-btn mt-2" data-target="benefits-fields-container" data-name="benefits[]" data-placeholder="e.g. Global recognition">
+                    <i class="bi bi-plus-lg me-1"></i> Add more
+                  </button>
+                </div>
+
+                <div class="col-12 d-flex flex-column flex-sm-row gap-3 pt-4">
+                  <button type="submit" class="btn btn-accent rounded-pill px-5 py-3 fw-bold ls-1 flex-grow-1">SAVE COURSE</button>
+                  <a href="admin_courses.html" class="btn btn-outline-light rounded-pill px-5 py-3 fw-medium text-center">CANCEL</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="bg-darker py-4 border-top border-secondary border-opacity-10 mt-auto">
+    <div class="container text-center">
+      <p class="text-light-muted opacity-50 mb-0 fs-sm">
+        &copy; 2024 Diving With Afshin Admin Dashboard
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS for dynamic form fields -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const addFieldButtons = document.querySelectorAll('.add-field-btn');
+      const imageInput = document.getElementById('courseImageInput');
+      const imagePreview = document.getElementById('imagePreview');
+      const uploadZone = document.querySelector('.upload-zone');
+
+      imageInput.addEventListener('change', () => {
+        if (imageInput.files && imageInput.files[0]) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            imagePreview.querySelector('img').src = e.target.result;
+            imagePreview.classList.remove('d-none');
+          };
+          reader.readAsDataURL(imageInput.files[0]);
+        }
+      });
+
+      document.getElementById('clearPreview').addEventListener('click', (e) => {
+        e.stopPropagation();
+        imageInput.value = '';
+        imagePreview.classList.add('d-none');
+      });
+
+      // Drag and drop support
+      uploadZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadZone.classList.add('dragover');
+      });
+
+      uploadZone.addEventListener('dragleave', () => {
+        uploadZone.classList.remove('dragover');
+      });
+
+      uploadZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove('dragover');
+        if (e.dataTransfer.files.length > 0) {
+          const file = e.dataTransfer.files[0];
+          if (file.type.startsWith('image/')) {
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            imageInput.files = dataTransfer.files;
+            imageInput.dispatchEvent(new Event('change'));
+          }
+        }
+      });
+
+      // Function to add a new input field
+      function addNewField(containerId, inputName, placeholder) {
+        const container = document.getElementById(containerId);
+        const inputGroup = document.createElement('div');
+        inputGroup.className = 'input-group mb-2';
+        inputGroup.innerHTML = `
+          <input type="text" class="form-control custom-input rounded-start-3 text-white" placeholder="${placeholder}" name="${inputName}" required>
+          <button type="button" class="btn btn-outline-danger remove-field-btn border-start-0 rounded-end-3 px-3"><i class="bi bi-x"></i></button>
+        `;
+        container.appendChild(inputGroup);
+        updateRemoveButtonsVisibility(container);
+      }
+
+      // Function to remove an input field
+      function removeField(button) {
+        const inputGroup = button.closest('.input-group');
+        const container = inputGroup.parentNode;
+        inputGroup.remove();
+        updateRemoveButtonsVisibility(container);
+      }
+
+      // Function to update visibility of remove buttons
+      function updateRemoveButtonsVisibility(container) {
+        const fields = container.querySelectorAll('.input-group');
+        if (fields.length <= 1) {
+          // Hide remove button for the single remaining field
+          if (fields[0]) { // Ensure field exists
+            fields[0].querySelector('.remove-field-btn').style.display = 'none';
+          }
+        } else {
+          // Show remove buttons for all fields
+          fields.forEach(field => {
+            field.querySelector('.remove-field-btn').style.display = 'flex'; // Use flex to center icon
+          });
+        }
+      }
+
+      // Initialize: Hide remove button for the initial single field in each container
+      document.querySelectorAll('[id$="-fields-container"]').forEach(container => {
+        updateRemoveButtonsVisibility(container);
+      });
+
+      // Event listener for "Add more" buttons
+      addFieldButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const containerId = this.dataset.target;
+          const inputName = this.dataset.name;
+          const placeholder = this.dataset.placeholder;
+          addNewField(containerId, inputName, placeholder);
+        });
+      });
+
+      // Event delegation for "Remove" buttons (since they are added dynamically)
+      document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('remove-field-btn') || event.target.closest('.remove-field-btn')) {
+          removeField(event.target.closest('.remove-field-btn'));
+        }
+      });
+
+      // Bootstrap form validation (already present in script.js, but good to ensure it works with dynamic fields)
+      const form = document.getElementById('courseForm');
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  </script>
+  <!-- The main script.js is still loaded for other functionalities -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

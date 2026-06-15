@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Helper function to build lists in modals
+    const buildList = (modal, containerId, items) => {
+        const container = modal.querySelector(`#${containerId}`);
+        if (container) {
+            container.innerHTML = items ? items.map(item => 
+                `<li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i>${item}</li>`
+            ).join('') : '';
+        }
+    };
+
     // Course Modal Logic
     const courseModal = document.getElementById('courseDetailModal');
     if (courseModal) {
@@ -18,20 +28,34 @@ document.addEventListener('DOMContentLoaded', function () {
             courseModal.querySelector('#modalCourseAge').textContent = data.age;
             courseModal.querySelector('#modalCourseOverview').textContent = data.overview;
 
-            // Build lists
-            const buildList = (containerId, items) => {
-                const container = courseModal.querySelector(`#${containerId}`);
-                if (container) {
-                    container.innerHTML = items.map(item => 
-                        `<li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i>${item}</li>`
-                    ).join('');
-                }
-            };
+            buildList(courseModal, 'modalCourseIncludes', data.includes);
+            buildList(courseModal, 'modalCourseRequirements', data.requirements);
+            buildList(courseModal, 'modalCourseWillLearn', data.willLearn);
+            buildList(courseModal, 'modalCourseBenefits', data.benefits);
+        });
+    }
 
-            buildList('modalCourseIncludes', data.includes);
-            buildList('modalCourseRequirements', data.requirements);
-            buildList('modalCourseWillLearn', data.willLearn);
-            buildList('modalCourseBenefits', data.benefits);
+    // Package Modal Logic
+    const packageModal = document.getElementById('packageDetailModal');
+    if (packageModal) {
+        packageModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const packageId = button.getAttribute('data-package');
+            const data = window.packageData ? window.packageData[packageId] : null;
+
+            if (!data) return;
+
+            // Update content
+            packageModal.querySelector('#modalPackageTitle').textContent = data.title;
+            packageModal.querySelector('#modalPackagePrice').textContent = data.price;
+            packageModal.querySelector('#modalPackageDuration').textContent = data.duration;
+            packageModal.querySelector('#modalPackageLocation').textContent = data.location;
+            packageModal.querySelector('#modalPackageGroup').textContent = data.groupSize;
+            packageModal.querySelector('#modalPackageOverview').textContent = data.overview;
+
+            buildList(packageModal, 'modalPackageIncludes', data.includes);
+            buildList(packageModal, 'modalPackageItinerary', data.itinerary);
+            buildList(packageModal, 'modalPackageRequirements', data.requirements);
         });
     }
 
