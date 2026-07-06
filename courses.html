@@ -1,315 +1,621 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PADI Diving Courses | Diving With Afshin</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PADI Diving Courses | Diving With Afshin</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
 
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-
-<body class="bg-dark-theme text-white">
-  <!-- Page Loader -->
-  <div id="loader-wrapper">
-    <div class="loader-content">
-      <div class="loader-bubbles">
-        <span style="left: -30px; width: 20px; height: 20px; animation-delay: 0s;"></span>
-        <span style="left: 50px; width: 12px; height: 12px; animation-delay: 0.4s;"></span>
-        <span style="left: 10px; width: 16px; height: 16px; animation-delay: 1.2s;"></span>
-        <span style="left: -60px; width: 10px; height: 10px; animation-delay: 1.8s;"></span>
-        <span style="left: 80px; width: 22px; height: 22px; animation-delay: 2.2s;"></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/images/dive with afshin logo-02.png" alt="Diving With Afshin Logo" class="navbar-logo" />
-      </a>
-      <button class="navbar-toggler border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3 gap-lg-5">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="courses.html">Courses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="packages.html">Packages</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="gallery.html">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-        <div class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start nav-social">
-          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+  <body class="bg-dark-theme text-white">
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+      <div class="loader-content">
+        <div class="loader-bubbles">
+          <span
+            style="left: -30px; width: 20px; height: 20px; animation-delay: 0s"
+          ></span>
+          <span
+            style="left: 50px; width: 12px; height: 12px; animation-delay: 0.4s"
+          ></span>
+          <span
+            style="left: 10px; width: 16px; height: 16px; animation-delay: 1.2s"
+          ></span>
+          <span
+            style="
+              left: -60px;
+              width: 10px;
+              height: 10px;
+              animation-delay: 1.8s;
+            "
+          ></span>
+          <span
+            style="left: 80px; width: 22px; height: 22px; animation-delay: 2.2s"
+          ></span>
         </div>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero Section for Courses -->
-  <header class="about-hero d-flex align-items-end pb-5">
-    <div class="about-hero-overlay"></div>
-    <div class="container position-relative z-1 text-center">
-      <p class="subtitle text-accent mb-3 ls-2 fw-semibold">
-        YOUR UNDERWATER JOURNEY
-      </p>
-      <h1 class="display-3 fw-bold mb-0 font-outfit text-white">PADI Diving Courses</h1>
-    </div>
-  </header>
-
-  <!-- Courses Grid Section -->
-  <section class="py-6 bg-darker">
-    <div class="container">
-      <div class="row g-4">
-        <!-- Course 1: Discovery -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="card h-100 border-0 rounded-4 overflow-hidden course-card animateElements">
-            <div class="card-img-top position-relative overflow-hidden" style="height: 240px">
-              <img src="https://images.unsplash.com/photo-1682687172507-14763b937f5e?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover" alt="Discovery Scuba" loading="lazy" />
-            </div>
-            <div class="card-body p-4 d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-start mb-3">
-                <span class="badge bg-accent text-dark rounded-pill px-3 py-2 fw-bold ls-1" style="font-size: 0.6rem">BEGINNER</span>
-                <div class="price-tag fw-bold">50 OMR</div>
-              </div>
-              <h3 class="h5 card-title fw-medium mb-3 text-white">Discovery Scuba Diving</h3>
-              <p class="card-text text-light-muted opacity-75 flex-grow-1 mb-4">
-                A supervised, non-certification program for first-timers. Learn the basics and take your first guided underwater breath.
-              </p>
-              <div class="course-meta d-flex justify-content-around align-items-center mb-4">
-                <div class="course-meta-item"><i class="bi bi-clock me-1"></i> HALF DAY</div>
-                <div class="course-meta-item"><i class="bi bi-water me-1"></i> 12M DEPTH</div>
-              </div>
-              <button type="button" class="btn btn-accent w-100 rounded-pill py-2 fw-medium" 
-                data-bs-toggle="modal" data-bs-target="#courseDetailModal" data-course="discovery-scuba">
-                View All Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Course 2: Open Water -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="card h-100 border-0 rounded-4 overflow-hidden course-card animateElements">
-            <div class="card-img-top position-relative overflow-hidden" style="height: 240px">
-              <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover" alt="Open Water Diver" loading="lazy" />
-            </div>
-            <div class="card-body p-4 d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-start mb-3">
-                <span class="badge bg-accent-dark text-accent rounded-pill px-3 py-2 fw-bold ls-1 border border-accent" style="font-size: 0.6rem">CERTIFICATION</span>
-                <div class="price-tag fw-bold">200 OMR</div>
-              </div>
-              <h3 class="h5 card-title fw-medium mb-3 text-white">PADI Open Water Diver</h3>
-              <p class="card-text text-light-muted opacity-75 flex-grow-1 mb-4">
-                Qualify to dive independently with a buddy up to 18 meters anywhere in the world. The world's most popular certification.
-              </p>
-              <div class="course-meta d-flex justify-content-around align-items-center mb-4">
-                <div class="course-meta-item"><i class="bi bi-clock me-1"></i> 3-5 DAYS</div>
-                <div class="course-meta-item"><i class="bi bi-water me-1"></i> 18M DEPTH</div>
-              </div>
-              <button type="button" class="btn btn-accent w-100 rounded-pill py-2 fw-medium" 
-                data-bs-toggle="modal" data-bs-target="#courseDetailModal" data-course="open-water">
-                View All Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Course 3: Advanced -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="card h-100 border-0 rounded-4 overflow-hidden course-card animateElements">
-            <div class="card-img-top position-relative overflow-hidden" style="height: 240px">
-              <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover" alt="Advanced Diver" loading="lazy" />
-            </div>
-            <div class="card-body p-4 d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-start mb-3">
-                <span class="badge bg-accent-dark text-accent rounded-pill px-3 py-2 fw-bold ls-1 border border-accent" style="font-size: 0.6rem">ADVANCED</span>
-                <div class="price-tag fw-bold">190 OMR</div>
-              </div>
-              <h3 class="h5 card-title fw-medium mb-3 text-white">Advanced Open Water</h3>
-              <p class="card-text text-light-muted opacity-75 flex-grow-1 mb-4">
-                Expand your horizons with 5 specialized adventure dives. Qualify to dive up to 30 meters deep.
-              </p>
-              <div class="course-meta d-flex justify-content-around align-items-center mb-4">
-                <div class="course-meta-item"><i class="bi bi-clock me-1"></i> 2-3 DAYS</div>
-                <div class="course-meta-item"><i class="bi bi-water me-1"></i> 30M DEPTH</div>
-              </div>
-              <button type="button" class="btn btn-accent w-100 rounded-pill py-2 fw-medium" 
-                data-bs-toggle="modal" data-bs-target="#courseDetailModal" data-course="advanced-open-water">
-                View All Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-       
-      </div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="bg-darker pt-5 pb-4 border-top border-secondary border-opacity-25">
-    <div class="container">
-      <div class="row gy-4 mb-5">
-        <div class="col-lg-4 pe-lg-5">
-          <a href="index.html" class="d-inline-block mb-4">
-            <img src="assets/images/dive with afshin logo-02.png" alt="Diving With Afshin Logo" class="footer-logo" />
-          </a>
-          <p class="text-light-muted opacity-75 fs-sm pe-lg-4 mb-4">
-            Dedicated to safe, professional, and immersive underwater experiences in the Sultanate of Oman.
-          </p>
-          <div class="d-flex gap-3 nav-social">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/images/dive with afshin logo-02.png"
+            alt="Diving With Afshin Logo"
+            class="navbar-logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0 shadow-none collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3 gap-lg-5">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="courses.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="packages.html">Packages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div
+            class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start nav-social"
+          >
+            <a href="#" aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 offset-lg-1 col-md-6">
-          <h5 class="text-white mb-3 fs-5 fw-bold">Quick Links</h5>
-          <ul class="list-unstyled d-flex flex-column gap-2">
-            <li>
-              <a href="index.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Home</a>
-            </li>
-            <li>
-              <a href="about.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">About</a>
-            </li>
-            <li>
-              <a href="courses.html"
-                class="text-light-muted opacity-75 text-white-hover text-decoration-none">Courses</a>
-            </li>
-            <li>
-              <a href="#packages" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Packages</a>
-            </li>
-            <li>
-              <a href="gallery.html"
-                class="text-light-muted opacity-75 text-white-hover text-decoration-none">Gallery</a>
-            </li>
-            <li>
-              <a href="contact.html"
-                class="text-light-muted opacity-75 text-white-hover text-decoration-none">Contact</a>
-            </li>
-          </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section for Courses -->
+    <header class="about-hero d-flex align-items-end pb-5">
+      <div class="about-hero-overlay"></div>
+      <div class="container position-relative z-1 text-center">
+        <p class="subtitle text-accent mb-3 ls-2 fw-semibold">
+          YOUR UNDERWATER JOURNEY
+        </p>
+        <h1 class="display-3 fw-bold mb-0 font-outfit text-white">
+          PADI Diving Courses
+        </h1>
+      </div>
+    </header>
+
+    <!-- Courses Grid Section -->
+    <section class="py-6 bg-darker">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Course 1: Discovery -->
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div
+              class="card h-100 border-0 rounded-4 overflow-hidden course-card animateElements"
+            >
+              <div
+                class="card-img-top position-relative overflow-hidden"
+                style="height: 240px"
+              >
+                <img
+                  src="https://plus.unsplash.com/premium_photo-1661894232140-73d96a67731b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGl2aW5nfGVufDB8fDB8fHww"
+                  class="w-100 h-100 object-fit-cover"
+                  alt="Discovery Scuba"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body p-4 d-flex flex-column">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-3"
+                >
+                  <span
+                    class="badge bg-accent-dark text-accent rounded-pill px-3 py-2 fw-bold ls-1 border border-accent"
+                    style="font-size: 0.6rem"
+                    >BEGINNER</span
+                  >
+                </div>
+                <h3 class="h5 card-title fw-medium mb-3 text-white">
+                  Discovery Scuba diving
+                </h3>
+                <p
+                  class="card-text text-light-muted opacity-75 flex-grow-1 mb-4"
+                >
+                  A PADI Discovery Scuba Diving (DSD) experience is a
+                  beginner-friendly introduction to scuba diving designed for
+                  people who have never dived before. It’s a supervised,
+                  non-certification program that lets you try diving safely in
+                  shallow, controlled conditions.
+                </p>
+                <div
+                  class="course-meta d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"
+                >
+                  <div class="course-meta-item">
+                    <i class="bi bi-clock me-1"></i>20–30 MINUTES
+                  </div>
+                  <div class="course-meta-item">
+                    <i class="bi bi-water me-1"></i>USUALLY MAX 5–12 METERS
+                    DEPTH
+                  </div>
+                </div>
+                <div class="price-tag fw-bold mb-4">
+                  50 OMR FOR 2 DIVES, 40 OMR FOR 1 DIVE
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-accent w-100 rounded-pill py-2 fw-medium"
+                  data-bs-toggle="modal"
+                  data-bs-target="#courseDetailModal"
+                  data-course="discovery-scuba"
+                >
+                  View All Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 2: Open Water -->
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div
+              class="card h-100 border-0 rounded-4 overflow-hidden course-card animateElements"
+            >
+              <div
+                class="card-img-top position-relative overflow-hidden"
+                style="height: 240px"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1608209957132-587daea098f3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGRpdmluZ3xlbnwwfHwwfHx8MA%3D%3D"
+                  class="w-100 h-100 object-fit-cover"
+                  alt="Discovery Scuba"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body p-4 d-flex flex-column">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-3"
+                >
+                  <span
+                    class="badge bg-accent-dark text-accent rounded-pill px-3 py-2 fw-bold ls-1 border border-accent"
+                    style="font-size: 0.6rem"
+                    >Intermediate</span
+                  >
+                </div>
+                <h3 class="h5 card-title fw-medium mb-3 text-white">
+                  Padi Advance Open Water Course
+                </h3>
+                <p
+                  class="card-text text-light-muted opacity-75 flex-grow-1 mb-4"
+                >
+                  The PADI Advanced Open Water Diver course by PADI is the next
+                  step after Open Water, designed to build confidence, expand
+                  skills, and let you explore deeper and more specialized diving
+                  experiences.
+                </p>
+                <div
+                  class="course-meta d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"
+                >
+                  <div class="course-meta-item">
+                    <i class="bi bi-clock me-1"></i>TYPICALLY 2 TO 3 DAYS, CAN
+                    BE COMPLETED OVER A WEEKEND IN MANY DIVE CENTERS, FLEXIBLE
+                    SCHEDULING DEPENDING ON LOCATION AND CONDITIONS
+                  </div>
+                  <div class="course-meta-item">
+                    <i class="bi bi-water me-1"></i>DEEPER UP TO 30 METERS
+                  </div>
+                </div>
+                <div class="price-tag fw-bold mb-4">190 OMR</div>
+                <button
+                  type="button"
+                  class="btn btn-accent w-100 rounded-pill py-2 fw-medium"
+                  data-bs-toggle="modal"
+                  data-bs-target="#courseDetailModal"
+                  data-course="open-water"
+                >
+                  View All Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 3: Advanced -->
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div
+              class="card h-100 border-0 rounded-4 overflow-hidden course-card animateElements"
+            >
+              <div
+                class="card-img-top position-relative overflow-hidden"
+                style="height: 240px"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1519327567471-ae47752b8089?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fGRpdmluZ3xlbnwwfHwwfHx8MA%3D%3D"
+                  class="w-100 h-100 object-fit-cover"
+                  alt="Discovery Scuba"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body p-4 d-flex flex-column">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-3"
+                >
+                  <span
+                    class="badge bg-accent-dark text-accent rounded-pill px-3 py-2 fw-bold ls-1 border border-accent"
+                    style="font-size: 0.6rem"
+                    >Certification</span
+                  >
+                </div>
+                <h3 class="h5 card-title fw-medium mb-3 text-white">
+                  Padi Open water course
+                </h3>
+                <p
+                  class="card-text text-light-muted opacity-75 flex-grow-1 mb-4"
+                >
+                  The PADI Open Water Diver course is the world’s most popular
+                  entry-level scuba certification, offered by PADI. It qualifies
+                  you to dive independently with a buddy up to 18 meters
+                  anywhere in the world.
+                </p>
+                <div
+                  class="course-meta d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"
+                >
+                  <div class="course-meta-item">
+                    <i class="bi bi-clock me-1"></i> TYPICALLY 3 TO 5 DAYS (CAN
+                    VARY BASED ON LOCATION AND SCHEDULE), FLEXIBLE E-LEARNING
+                    OPTION AVAILABLE FOR THEORY BEFORE ARRIVAL
+                  </div>
+                  <div class="course-meta-item">
+                    <i class="bi bi-water me-1"></i>UP TO 18M DEPTH
+                  </div>
+                </div>
+                <div class="price-tag fw-bold mb-4">240 OMR</div>
+                <button
+                  type="button"
+                  class="btn btn-accent w-100 rounded-pill py-2 fw-medium"
+                  data-bs-toggle="modal"
+                  data-bs-target="#courseDetailModal"
+                  data-course="advanced-open-water"
+                >
+                  View All Details
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="text-white mb-3 fs-5 fw-bold">Location</h5>
-          <address class="text-light-muted opacity-75 mb-3">
-            Al Mouj Marina,<br />
-            Muscat, Oman
-          </address>
-          <p class="text-light-muted opacity-75">
-            Available daily for private bookings and certifications.
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-darker pt-5 pb-4 border-top border-secondary border-opacity-25"
+    >
+      <div class="container">
+        <div class="row gy-4 mb-5">
+          <div class="col-lg-4 pe-lg-5">
+            <a href="index.html" class="d-inline-block mb-4">
+              <img
+                src="assets/images/dive with afshin logo-02.png"
+                alt="Diving With Afshin Logo"
+                class="footer-logo"
+              />
+            </a>
+            <p class="text-light-muted opacity-75 fs-sm pe-lg-4 mb-4">
+              Dedicated to safe, professional, and immersive underwater
+              experiences in the Sultanate of Oman.
+            </p>
+            <div class="d-flex gap-3 nav-social">
+              <a href="#" aria-label="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" aria-label="WhatsApp"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 offset-lg-1 col-md-6">
+            <h5 class="text-white mb-3 fs-5 fw-bold">Quick Links</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="courses.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#packages"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Packages</a
+                >
+              </li>
+              <li>
+                <a
+                  href="gallery.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white mb-3 fs-5 fw-bold">Location</h5>
+            <address class="text-light-muted opacity-75 mb-3">
+              Al Mouj Marina,<br />
+              Muscat, Oman
+            </address>
+            <p class="text-light-muted opacity-75">
+              Available daily for private bookings and certifications.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="border-top border-secondary border-opacity-25 pt-4 text-center"
+        >
+          <p class="text-light-muted opacity-50 mb-0 copyright-text">
+            &copy; 2024 Diving With Afshin. All rights reserved.
           </p>
         </div>
       </div>
+    </footer>
 
-      <div class="border-top border-secondary border-opacity-25 pt-4 text-center">
-        <p class="text-light-muted opacity-50 mb-0 copyright-text">
-          &copy; 2024 Diving With Afshin. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/201234567890"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/201234567890" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="bi bi-whatsapp"></i>
-  </a>
-
-  <!-- Course Detail Modal -->
-  <div class="modal fade course-modal" id="courseDetailModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content overflow-hidden">
-        <div class="modal-header border-0 p-0">
-          <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-4 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-4 p-md-5">
-          <div class="row g-5">
-            <!-- Main Content Column -->
-            <div class="col-md-7 col-lg-8">
-              <div class="hero-badge d-inline-block mb-3 px-3 py-1 rounded-pill">
-                <span id="modalCourseLevel" class="subtitle text-accent ls-1 fw-bold" style="font-size: 0.7rem;"></span>
-              </div>
-              <h2 id="modalCourseTitle" class="display-5 fw-bold font-outfit text-white mb-4"></h2>
-              
-              <div class="mb-5">
-                <h4 class="fw-bold font-outfit text-accent mb-3" style="font-size: 1.1rem; letter-spacing: 1px;">OVERVIEW</h4>
-                <p id="modalCourseOverview" class="text-light-muted opacity-90 fs-6 mb-0"></p>
-              </div>
-
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <h4 class="fw-bold font-outfit text-accent mb-3" style="font-size: 1rem; letter-spacing: 1px;">INCLUDED</h4>
-                  <ul id="modalCourseIncludes" class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"></ul>
+    <!-- Course Detail Modal -->
+    <div
+      class="modal fade course-modal"
+      id="courseDetailModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content overflow-hidden">
+          <div class="modal-header border-0 p-0">
+            <button
+              type="button"
+              class="btn-close btn-close-white position-absolute top-0 end-0 m-4 z-3"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4 p-md-5">
+            <div class="row g-5">
+              <!-- Main Content Column -->
+              <div class="col-md-12 col-lg-12">
+                <div
+                  id="modalCourseLevelContainer"
+                  class="hero-badge d-inline-block mb-3 px-3 py-1 rounded-pill"
+                >
+                  <span
+                    id="modalCourseLevel"
+                    class="subtitle text-accent ls-1 fw-bold"
+                    style="font-size: 0.7rem"
+                  ></span>
                 </div>
-                <div class="col-md-6">
-                  <h4 class="fw-bold font-outfit text-accent mb-3" style="font-size: 1rem; letter-spacing: 1px;">REQUIREMENTS</h4>
-                  <ul id="modalCourseRequirements" class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"></ul>
-                </div>
-              </div>
+                <h2
+                  id="modalCourseTitle"
+                  class="display-5 fw-bold font-outfit text-white mb-5"
+                ></h2>
 
-              <div class="row g-4 mt-2">
-                <div class="col-md-6">
-                  <h4 class="fw-bold font-outfit text-accent mb-3" style="font-size: 1rem; letter-spacing: 1px;">WHAT YOU'LL LEARN</h4>
-                  <ul id="modalCourseWillLearn" class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"></ul>
+                <div class="mb-5">
+                  <h4
+                    class="fw-bold font-outfit text-accent mb-2"
+                    style="font-size: 1.1rem; letter-spacing: 1px"
+                  >
+                    OVERVIEW
+                  </h4>
+                  <p
+                    id="modalCourseOverview"
+                    class="text-light-muted opacity-90 fs-6 mb-0"
+                  ></p>
                 </div>
-                <div class="col-md-6">
-                  <h4 class="fw-bold font-outfit text-accent mb-3" style="font-size: 1rem; letter-spacing: 1px;">BENEFITS</h4>
-                  <ul id="modalCourseBenefits" class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"></ul>
-                </div>
-              </div>
-            </div>
 
-            <!-- Sidebar Stats Column -->
-            <div class="col-md-5 col-lg-4">
-              <div class="modal-sidebar-card p-4 rounded-4 h-auto">
-                <div class="row g-3 mb-4">
-                  <div class="col-sm-6 col-lg-12">
-                    <div class="modal-summary-item d-flex align-items-center gap-3"><div class="icon-sm bg-accent-dark text-accent rounded-circle d-flex align-items-center justify-content-center"><i class="bi bi-tag"></i></div><div><span class="d-block text-accent fs-xs fw-bold ls-1">PRICE</span><span id="modalCoursePrice" class="h5 fw-bold text-white mb-0"></span></div></div>
+                <div class="col-sm-12 col-lg-12 mb-3">
+                  <div
+                    class="modal-summary-item d-flex align-items-center gap-3"
+                  >
+                    <div>
+                      <span
+                        class="d-block text-accent fw-bold ls-1 mb-2"
+                        style="font-size: 1.1rem"
+                        >PRICE</span
+                      ><span
+                        id="modalCoursePrice"
+                        class="h5 fw-bold text-white mb-0 modal-course-price"
+                      ></span>
+                    </div>
                   </div>
-                  <div class="col-sm-6 col-lg-12">
-                    <div class="modal-summary-item d-flex align-items-center gap-3"><div class="icon-sm bg-accent-dark text-accent rounded-circle d-flex align-items-center justify-content-center"><i class="bi bi-clock"></i></div><div><span class="d-block text-accent fs-xs fw-bold ls-1">DURATION</span><span id="modalCourseDuration" class="h5 fw-bold text-white mb-0"></span></div></div>
-                  </div>
-                  <div class="col-sm-6 col-lg-12">
-                    <div class="modal-summary-item d-flex align-items-center gap-3"><div class="icon-sm bg-accent-dark text-accent rounded-circle d-flex align-items-center justify-content-center"><i class="bi bi-water"></i></div><div><span class="d-block text-accent fs-xs fw-bold ls-1">MAX DEPTH</span><span id="modalCourseDepth" class="h5 fw-bold text-white mb-0"></span></div></div>
-                  </div>
-                  <div class="col-sm-6 col-lg-12">
-                    <div class="modal-summary-item d-flex align-items-center gap-3"><div class="icon-sm bg-accent-dark text-accent rounded-circle d-flex align-items-center justify-content-center"><i class="bi bi-person-check"></i></div><div><span class="d-block text-accent fs-xs fw-bold ls-1">MIN. AGE</span><span id="modalCourseAge" class="h5 fw-bold text-white mb-0"></span></div></div>
+                </div>
+
+                <div
+                  class="col-sm-12 col-lg-12 mb-3"
+                  id="modalCourseDurationContainer"
+                >
+                  <div
+                    class="modal-summary-item d-flex align-items-center gap-3"
+                  >
+                    <div>
+                      <span
+                        class="d-block text-accent fw-bold ls-1 mb-2"
+                        style="font-size: 1.1rem"
+                        >DURATION</span
+                      ><span
+                        id="modalCourseDuration"
+                        class="h5 fw-bold text-white mb-0 modal-course-duration"
+                      ></span>
+                    </div>
                   </div>
                 </div>
-                <div class="d-grid pt-2">
-                  <a href="contact.html" class="btn btn-accent rounded-pill py-3 fw-bold ls-1 shadow-lg">START JOURNEY</a>
+
+                <div
+                  class="col-sm-12 col-lg-12 mb-3"
+                  id="modalCourseAgeContainer"
+                >
+                  <div
+                    class="modal-summary-item d-flex align-items-center gap-3"
+                  >
+                    <div>
+                      <span
+                        class="d-block text-accent fw-bold ls-1 mb-2"
+                        style="font-size: 1.1rem"
+                        >MIN. AGE</span
+                      ><span
+                        id="modalCourseAge"
+                        class="h5 fw-bold text-white mb-0 modal-course-age"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="col-sm-12 col-lg-12 mb-5"
+                  id="modalCourseDepthContainer"
+                >
+                  <div
+                    class="modal-summary-item d-flex align-items-center gap-3"
+                  >
+                    <div>
+                      <span
+                        class="d-block text-accent fw-bold ls-1 mb-2"
+                        style="font-size: 1.1rem"
+                        >MAX DEPTH</span
+                      ><span
+                        id="modalCourseDepth"
+                        class="h5 fw-bold text-white mb-0 modal-course-depth"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-4">
+                  <div class="col-md-6" id="modalCourseIncludesContainer">
+                    <h4
+                      class="fw-bold font-outfit text-accent mb-2"
+                      style="font-size: 1rem; letter-spacing: 1px"
+                    >
+                      INCLUDED
+                    </h4>
+                    <ul
+                      id="modalCourseIncludes"
+                      class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"
+                    ></ul>
+                  </div>
+                  <div class="col-md-6" id="modalCourseRequirementsContainer">
+                    <h4
+                      class="fw-bold font-outfit text-accent mb-2"
+                      style="font-size: 1rem; letter-spacing: 1px"
+                    >
+                      REQUIREMENTS
+                    </h4>
+                    <ul
+                      id="modalCourseRequirements"
+                      class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"
+                    ></ul>
+                  </div>
+                </div>
+
+                <div class="row g-4 mt-2">
+                  <div class="col-md-6" id="modalCourseWillLearnContainer">
+                    <h4
+                      class="fw-bold font-outfit text-accent mb-2"
+                      style="font-size: 1rem; letter-spacing: 1px"
+                    >
+                      WHAT YOU'LL LEARN
+                    </h4>
+                    <ul
+                      id="modalCourseWillLearn"
+                      class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"
+                    ></ul>
+                  </div>
+                  <div class="col-md-6" id="modalCourseBenefitsContainer">
+                    <h4
+                      class="fw-bold font-outfit text-accent mb-2"
+                      style="font-size: 1rem; letter-spacing: 1px"
+                    >
+                      BENEFITS
+                    </h4>
+                    <ul
+                      id="modalCourseBenefits"
+                      class="list-unstyled text-light-muted opacity-75 fs-6 lh-lg"
+                    ></ul>
+                  </div>
+                </div>
+                <div class="d-grid pt-4">
+                  <a
+                    href="{{ route('contact') }}"
+                    class="btn btn-accent rounded-pill py-3 fw-bold ls-1 shadow-lg"
+                    >START JOURNEY</a
+                  >
                 </div>
               </div>
             </div>
@@ -317,56 +623,112 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Course Content Data -->
-  <script>
-    window.courseData = {
-        'discovery-scuba': {
-            title: 'Discovery Scuba Diving',
-            price: '50 OMR',
-            level: 'Beginner',
-            duration: 'Half Day',
-            depth: '12 Meters',
-            age: '10 Years',
-            overview: 'A supervised, non-certification program for first-timers. Learn the basics and take your first guided underwater breath in the beautiful waters of Oman.',
-            includes: ['Theory session', 'Equipment rental', 'Supervised shallow dive', 'Refreshments'],
-            requirements: ['Basic comfort in water', 'Good physical health', 'Signed medical release'],
-            willLearn: ['Basic safety guidelines', 'How scuba equipment works', 'Breathing underwater', 'Hand signals'],
-            benefits: ['First underwater experience', 'Introduction to scuba', 'Confidence builder']
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Course Content Data -->
+    <script>
+      window.courseData = {
+        "discovery-scuba": {
+          title: "Discovery Scuba diving",
+          price: "50 OMR FOR 2 DIVES, 40 OMR FOR 1 DIVE",
+          level: "Begginer",
+          duration: "20–30 minutes",
+          depth: "usually max 5–12 meters depth",
+          age: "10 Years",
+          overview:
+            "A PADI Discovery Scuba Diving (DSD) experience is a beginner-friendly introduction to scuba diving designed for people who have never dived before. It’s a supervised, non-certification program that lets you try diving safely in shallow, controlled conditions.",
+          includes: [
+            "Brief theory session (20–30 minutes)",
+            "Practice in shallow water or pool",
+            "Guided open-water dive (usually max 5–12 meters depth)",
+            "Total experience often lasts half a day to one day",
+          ],
+          requirements: [
+            "Basic comfort in water",
+            "Good physical health",
+            "Signed medical release",
+          ],
+          willLearn: [
+            "Basic scuba equipment use (mask, regulator, fins, tank)",
+            "Simple underwater communication signals",
+            "Breathing underwater and equalizing pressure",
+            "Safety rules and instructor-led control throughout the dive",
+          ],
+          benefits: [
+            "First underwater experience",
+            "Introduction to scuba",
+            "Confidence builder",
+          ],
         },
-        'open-water': {
-            title: 'PADI Open Water Diver',
-            price: '200 OMR',
-            level: 'Certification',
-            duration: '3-5 Days',
-            depth: '18 Meters',
-            age: '10 Years',
-            overview: "The world's most popular entry-level scuba certification. Qualifies you to dive independently with a buddy anywhere in the world.",
-            includes: ['PADI eLearning materials', 'Confined water training', '4 Open water dives', 'Logbook & Certification card'],
-            requirements: ['Swim 200m without aids', 'Float for 10 mins', 'Medical statement completion'],
-            willLearn: ['Diving principles & safety', 'Scuba skills in controlled water', 'Buoyancy & navigation', 'Equipment maintenance'],
-            benefits: ['Global recognition', 'Dive to 18 meters', 'Pathway to advanced courses']
+        "open-water": {
+          title: "Padi Advance Open Water Course",
+          price: "190 OMR",
+          level: "Intermediate",
+          duration:
+            "Typically 2 to 3 days, Can be completed over a weekend in many dive centers, Flexible scheduling depending on location and conditions",
+          depth: "deeper up to 30 meters",
+          age: "usually 12–15+ depending on agency rules and dive type",
+          overview:
+            "The PADI Advanced Open Water Diver course by PADI is the next step after Open Water, designed to build confidence, expand skills, and let you explore deeper and more specialized diving experiences.",
+          includes: [
+            "Deep Dive – Learn to safely dive up to 30 meters",
+            "Underwater Navigation – Improve compass and natural navigation skills",
+            "3 Elective Dives – Choose based on interest (e.g., night diving, drift diving, wreck diving, buoyancy control, fish identification)",
+          ],
+          requirements: [
+            "Must hold PADI Open Water Diver certification (or equivalent)",
+            "Minimum age: usually 12–15+ depending on agency rules and dive type",
+            "Basic diving experience and comfort underwater",
+          ],
+          willLearn: [
+            "Advanced buoyancy control for smoother diving",
+            "Deep diving safety techniques and planning",
+            "Better underwater navigation and awareness",
+            "Specialty diving basics depending on chosen dives",
+          ],
+          benefits: [
+            "Dive deeper up to 30 meters",
+            "Gain experience in different dive environments",
+            "Unlock access to specialty courses (wreck, night, rescue, etc.)",
+            "Improve confidence and dive control in real conditions",
+          ],
         },
-        'advanced-open-water': {
-            title: 'Advanced Open Water',
-            price: '190 OMR',
-            level: 'Advanced',
-            duration: '2-3 Days',
-            depth: '30 Meters',
-            age: '12 Years',
-            overview: 'Expand your horizons with 5 specialized adventure dives. Build confidence and expand your scuba skills in new environments.',
-            includes: ['Advanced eLearning', 'Deep dive specialty', 'Navigation specialty', '3 Adventure dives of your choice'],
-            requirements: ['PADI Open Water certification (or equivalent)', 'Min age 12-15 (Junior) or 15+'],
-            willLearn: ['Deep diving (up to 30m)', 'Advanced navigation', 'Adventure specialties', 'Skill refinement'],
-            benefits: ['Explore deeper reefs', 'Enhanced confidence', 'Access more complex sites']
-        }
-    };
-  </script>
-  <!-- Custom JS -->
-  <script src="assets/js/script.js"></script>
-</body>
-
+        "advanced-open-water": {
+          title: "Padi Open water course",
+          price: "200 OMR",
+          level: "Certification",
+          duration:
+            "Typically 3 to 5 days (can vary based on location and schedule), Flexible e-learning option available for theory before arrival",
+          depth: "up to 18m Depth",
+          age: "10–15+ depending on certification level (Junior/Standard Open Water)",
+          overview:
+            "The PADI Open Water Diver course is the world’s most popular entry-level scuba certification, offered by PADI. It qualifies you to dive independently with a buddy up to 18 meters anywhere in the world.",
+          includes: [
+            "Theory (Knowledge Development) – Learn diving principles, safety rules, pressure, equipment, and underwater communication",
+            "Confined Water Training – Practice basic scuba skills in a pool or shallow controlled environment",
+            "Open Water Dives (4 dives) – Real dives in the ocean under instructor supervision",
+          ],
+          requirements: [
+            "Basic swimming ability",
+            "Good health (medical questionnaire required)",
+          ],
+          willLearn: [
+            "Setting up and using scuba equipment",
+            "Breathing and buoyancy control underwater",
+            "Mask clearing and regulator recovery",
+            "Safe ascent and descent techniques",
+            "Underwater navigation basics",
+          ],
+          benefits: [
+            "Dive independently with a buddy (up to 18m)",
+            "Recognized globally at dive centers and resorts",
+            "Pathway to advanced diving courses like Advanced Open Water, Rescue Diver, and specialties",
+          ],
+        },
+      };
+    </script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>

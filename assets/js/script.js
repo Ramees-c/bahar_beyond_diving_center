@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buildList = (modal, containerId, items) => {
         const container = modal.querySelector(`#${containerId}`);
         if (container) {
-            container.innerHTML = items ? items.map(item => 
+            container.innerHTML = items ? items.map(item =>
                 `<li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i>${item}</li>`
             ).join('') : '';
         }
@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const button = event.relatedTarget;
             const courseId = button.getAttribute('data-course');
             const data = window.courseData ? window.courseData[courseId] : null;
+    // Course and Package Modal Logic is now handled by inline scripts in their respective Blade files
+    // to allow for dynamic content and conditional display based on data presence.
 
             if (!data) return;
 
@@ -48,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Update content
             packageModal.querySelector('#modalPackageTitle').textContent = data.title;
             packageModal.querySelector('#modalPackagePrice').textContent = data.price;
+            packageModal.querySelector('#modalPackageLevel').textContent = data.level;
             packageModal.querySelector('#modalPackageDuration').textContent = data.duration;
             packageModal.querySelector('#modalPackageLocation').textContent = data.location;
             packageModal.querySelector('#modalPackageGroup').textContent = data.groupSize;
@@ -123,34 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Active link highlighting on scroll (only for index.html sections)
-    const sections = document.querySelectorAll('section, header');
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    const currentPath = window.location.pathname;
-    const isHomePage = currentPath.endsWith('index.html') || currentPath === '/' || currentPath.endsWith('/');
-
-    window.addEventListener('scroll', () => {
-        if (isHomePage) {
-            let current = '';
-            const scrollY = window.pageYOffset;
-
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                link.classList.remove('active');
-                if (href === `#${current}` || (current === 'home' && (href === 'index.html' || href === '#' || href === ''))) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
 
     // Add smooth reveal animations with stagger effect
     const animateElements = document.querySelectorAll('.card, .icon-box, .img-wrapper, .accordion-item, .how-card, .cert-card, .contact-method-card, .contact-glass-form, .subtitle, h2, .journey-card, .journey-stat-card, .cert-glass-panel, .gallery-card, .animateElements');
@@ -178,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const value = Math.floor(progress * target);
-            
+
             el.textContent = value + suffix;
 
             if (progress < 1) {
@@ -239,10 +214,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 delay: 4000,
                 disableOnInteraction: false,
             },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
             breakpoints: {
                 992: {
                     slidesPerView: 2,
@@ -260,77 +231,266 @@ document.addEventListener('DOMContentLoaded', function () {
         let gallerySwiper = null;
         let thumbsSwiper = null;
 
-        const initGallerySwipers = () => {
-            if (gallerySwiper) return; // Initialize only once
+        // Destroy existing swipers and rebuild slides from current DOM images.
+        // Called every time the modal opens so lazy-loaded images are included.
+        const buildSwipers = (startIndex) => {
+            // Destroy old instances
+            if (gallerySwiper) { gallerySwiper.destroy(true, true); gallerySwiper = null; }
+            if (thumbsSwiper)  { thumbsSwiper.destroy(true, true);  thumbsSwiper  = null; }
 
+            // Clear wrappers
+            mainWrapper.innerHTML  = '';
+            thumbsWrapper.innerHTML = '';
+
+            // Build slides from every visible gallery image
             const images = galleryMasonry.querySelectorAll('.gallery-card img');
             images.forEach(img => {
-                const mainSlide = `<div class="swiper-slide d-flex align-items-center justify-content-center">
-                    <img src="${img.src}" alt="${img.alt}">
-                </div>`;
-                const thumbSlide = `<div class="swiper-slide">
-                    <img src="${img.src}" alt="${img.alt}">
-                </div>`;
-                mainWrapper.insertAdjacentHTML('beforeend', mainSlide);
-                thumbsWrapper.insertAdjacentHTML('beforeend', thumbSlide);
+                mainWrapper.insertAdjacentHTML('beforeend',
+                    `<div class="swiper-slide d-flex align-items-center justify-content-center">
+                        <img src="${img.src}" alt="${img.alt}">
+                    </div>`
+                );
+                thumbsWrapper.insertAdjacentHTML('beforeend',
+                    `<div class="swiper-slide"><img src="${img.src}" alt="${img.alt}"></div>`
+                );
             });
 
             thumbsSwiper = new Swiper('.gallery-thumbs-swiper', {
-                spaceBetween: 10,
-                slidesPerView: 3, // Default for very small screens
-                freeMode: true,
+                spaceBetween: 8,
+                slidesPerView: 4,
+                centeredSlides: false,
                 watchSlidesProgress: true,
+                slideToClickedSlide: true,
                 breakpoints: {
-                    400: { slidesPerView: 4 },
-                    576: { slidesPerView: 5 },
-                    768: { slidesPerView: 7 },
-                    1200: { slidesPerView: 10 }
+                    400:  { slidesPerView: 5  },
+                    576:  { slidesPerView: 6  },
+                    768:  { slidesPerView: 8  },
+                    1200: { slidesPerView: 11 }
                 }
             });
 
             gallerySwiper = new Swiper('.gallery-main-swiper', {
                 spaceBetween: 10,
+                initialSlide: startIndex,   // ← start on the correct slide, no flash
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
-                keyboard: {
-                    enabled: true,
-                },
-                thumbs: {
-                    swiper: thumbsSwiper,
-                },
+                keyboard: { enabled: true },
+                thumbs: { swiper: thumbsSwiper },
             });
         };
 
-        const cards = galleryMasonry.querySelectorAll('.gallery-card');
-        cards.forEach((card, index) => {
-            card.addEventListener('click', () => {
-                initGallerySwipers();
-                const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
-                modal.show();
-                
-                modalElement.addEventListener('shown.bs.modal', () => {
-                    gallerySwiper.update();
-                    thumbsSwiper.update();
-                    gallerySwiper.slideTo(index, 0);
-                }, { once: true });
-            });
+        // Use event delegation so dynamically injected (lazy-loaded) cards also work
+        galleryMasonry.addEventListener('click', function (e) {
+            const card = e.target.closest('.gallery-card');
+            if (!card) return;
+
+            // Determine clicked index among ALL current cards
+            const allCards = Array.from(galleryMasonry.querySelectorAll('.gallery-card'));
+            const index = allCards.indexOf(card);
+            if (index === -1) return;
+
+            // Build swipers with correct starting slide BEFORE modal opens → no flash
+            buildSwipers(index);
+
+            bootstrap.Modal.getOrCreateInstance(modalElement).show();
+
+            // After the modal finishes opening, update layout (handles hidden-container sizing)
+            modalElement.addEventListener('shown.bs.modal', () => {
+                gallerySwiper.update();
+                thumbsSwiper.update();
+            }, { once: true });
+        });
+
+        // Clean up on modal close so next open always rebuilds fresh
+        modalElement.addEventListener('hidden.bs.modal', () => {
+            if (gallerySwiper) { gallerySwiper.destroy(true, true); gallerySwiper = null; }
+            if (thumbsSwiper)  { thumbsSwiper.destroy(true, true);  thumbsSwiper  = null; }
+            mainWrapper.innerHTML  = '';
+            thumbsWrapper.innerHTML = '';
         });
     }
+
+    // Popup Alert (centered, styled, with OK button)
+    window.showPopupAlert = function(type, message, options = {}) {
+        const existing = document.getElementById('custom-popup-alert');
+        if (existing) existing.remove();
+
+        const overlay = document.createElement('div');
+        overlay.id = 'custom-popup-alert';
+        overlay.style.position = 'fixed';
+        overlay.style.inset = '0';
+        overlay.style.display = 'flex';
+        overlay.style.alignItems = 'center';
+        overlay.style.justifyContent = 'center';
+        overlay.style.zIndex = '2000';
+        overlay.style.background = 'rgba(var(--bg-darker-rgb, 6, 11, 15), 0)';
+        overlay.style.transition = 'background 300ms cubic-bezier(0.4, 0, 0.2, 1)';
+
+        const panel = document.createElement('div');
+        panel.setAttribute('role', 'alertdialog');
+        panel.setAttribute('aria-modal', 'true');
+        panel.style.minWidth = '280px';
+        panel.style.maxWidth = '480px';
+        panel.style.background = 'rgba(var(--bg-card-rgb, 20, 56, 64), 0.6)';
+        panel.style.backdropFilter = 'blur(20px) saturate(150%)';
+        panel.style.webkitBackdropFilter = 'blur(20px) saturate(150%)';
+        panel.style.borderRadius = '1.5rem'; // 24px
+        panel.style.padding = '2rem';
+        panel.style.border = '1px solid rgba(var(--accent-rgb, 93, 211, 232), 0.15)';
+        panel.style.boxShadow = '0 20px 50px rgba(0,0,0,0.4)';
+        panel.style.textAlign = 'center';
+        panel.style.transform = 'translateY(20px)';
+        panel.style.opacity = '0';
+        panel.style.transition = 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)';
+
+        const colors = {
+            success: {bg: 'rgba(var(--accent-rgb, 93, 211, 232), 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: 'var(--accent, #5dd3e8)'},
+            error: {bg: 'rgba(255, 107, 107, 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: '#ff6b6b'},
+            info: {bg: 'rgba(var(--accent-secondary-rgb, 42, 157, 181), 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: 'var(--accent-secondary, #2a9db5)'}
+        };
+
+        const cfg = colors[type] || colors.info;
+
+        const iconWrap = document.createElement('div');
+        iconWrap.style.width = '56px';
+        iconWrap.style.height = '56px';
+        iconWrap.style.margin = '0 auto 1rem auto';
+        iconWrap.style.display = 'flex';
+        iconWrap.style.alignItems = 'center';
+        iconWrap.style.justifyContent = 'center';
+        iconWrap.style.borderRadius = '50%';
+        iconWrap.style.background = cfg.bg;
+        iconWrap.style.border = `1px solid ${cfg.accent}`;
+
+        const icon = document.createElement('div');
+        icon.innerHTML = type === 'success' ?
+            `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12.5l2 2 4-5" stroke="${cfg.accent}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>` :
+            `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9v4" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 17h.01" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        iconWrap.appendChild(icon);
+
+        const title = document.createElement('h4');
+        title.className = 'font-outfit';
+        title.style.margin = '0 0 0.5rem 0';
+        title.style.fontSize = '1.5rem';
+        title.style.fontWeight = '600';
+        title.style.color = 'var(--text-primary, #f0f4f7)';
+        title.textContent = type === 'success' ? 'Success' : (type === 'error' ? 'Error' : 'Info');
+
+        const text = document.createElement('p');
+        text.style.margin = '0 0 0 0';
+        text.style.fontSize = '1rem';
+        text.style.color = 'var(--text-muted, #8fa8b5)';
+        text.style.lineHeight = '1.6';
+        text.textContent = message || '';
+
+        const actions = document.createElement('div');
+        actions.style.marginTop = '18px';
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = options.okText || 'OK';
+        btn.className = 'btn btn-accent mt-2 px-4'; // Use the existing .btn-accent style
+        actions.appendChild(btn);
+
+        panel.appendChild(iconWrap);
+        panel.appendChild(title);
+        panel.appendChild(text);
+        panel.appendChild(actions);
+        overlay.appendChild(panel);
+        document.body.appendChild(overlay);
+
+        // Trigger animation
+        requestAnimationFrame(() => {
+            overlay.style.background = 'rgba(var(--bg-darker-rgb, 6, 11, 15), 0.6)';
+            panel.style.opacity = '1';
+            panel.style.transform = 'translateY(0)';
+        });
+
+        // Focus and interactions
+        btn.focus();
+
+        const cleanup = () => {
+            panel.style.opacity = '0';
+            panel.style.transform = 'translateY(20px)';
+            overlay.style.background = 'rgba(var(--bg-darker-rgb, 6, 11, 15), 0)';
+            setTimeout(() => {
+                if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+            }, 300);
+        };
+
+        btn.addEventListener('click', () => {
+            cleanup();
+            if (typeof options.onClose === 'function') options.onClose();
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay && options.dismissible !== false) {
+                cleanup();
+                if (typeof options.onClose === 'function') options.onClose();
+            }
+        });
+
+        const escHandler = (e) => {
+            if (e.key === 'Escape') {
+                cleanup();
+                document.removeEventListener('keydown', escHandler);
+            }
+        };
+        document.addEventListener('keydown', escHandler);
+    };
 
     // Contact Form Validation
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
             if (!contactForm.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
+                contactForm.classList.add('was-validated');
             } else {
-                event.preventDefault();
-                // Success logic could go here (e.g., AJAX submission)
+                const btn = contactForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+
+                // Set loading state
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>SENDING...';
+
+                const formData = new FormData(contactForm);
+                const action = contactForm.getAttribute('action') || '/contact-send';
+
+                fetch(action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(async response => {
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.message || 'Something went wrong');
+                    return data;
+                })
+                .then(data => {
+                    if (window.showPopupAlert) {
+                        window.showPopupAlert('success', data.message || 'Your message has been sent successfully!');
+                    }
+                    contactForm.reset();
+                    contactForm.classList.remove('was-validated');
+                })
+                .catch(error => {
+                    if (window.showPopupAlert) {
+                        window.showPopupAlert('error', error.message || 'Failed to send message. Please try again later.');
+                    }
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                });
             }
-            contactForm.classList.add('was-validated');
         }, false);
     }
 });
