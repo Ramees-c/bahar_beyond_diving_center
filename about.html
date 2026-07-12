@@ -1,452 +1,647 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Afshin | Diving With Afshin</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Afshin | Diving With Afshin</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
 
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-
-<body class="bg-dark-theme text-white">
-  <!-- Page Loader -->
-  <div id="loader-wrapper">
-    <div class="loader-content">
-      <div class="loader-bubbles">
-        <span style="left: -30px; width: 20px; height: 20px; animation-delay: 0s;"></span>
-        <span style="left: 50px; width: 12px; height: 12px; animation-delay: 0.4s;"></span>
-        <span style="left: 10px; width: 16px; height: 16px; animation-delay: 1.2s;"></span>
-        <span style="left: -60px; width: 10px; height: 10px; animation-delay: 1.8s;"></span>
-        <span style="left: 80px; width: 22px; height: 22px; animation-delay: 2.2s;"></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/images/dive with afshin logo-02.png" alt="Diving With Afshin Logo" class="navbar-logo" />
-      </a>
-      <button class="navbar-toggler border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3 gap-lg-5">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="courses.html">Courses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="packages.html">Packages</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="gallery.html">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-        <div class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start nav-social">
-          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+  <body class="bg-dark-theme text-white">
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+      <div class="loader-content">
+        <div class="loader-bubbles">
+          <span
+            style="left: -30px; width: 20px; height: 20px; animation-delay: 0s"
+          ></span>
+          <span
+            style="left: 50px; width: 12px; height: 12px; animation-delay: 0.4s"
+          ></span>
+          <span
+            style="left: 10px; width: 16px; height: 16px; animation-delay: 1.2s"
+          ></span>
+          <span
+            style="
+              left: -60px;
+              width: 10px;
+              height: 10px;
+              animation-delay: 1.8s;
+            "
+          ></span>
+          <span
+            style="left: 80px; width: 22px; height: 22px; animation-delay: 2.2s"
+          ></span>
         </div>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <header class="about-hero d-flex align-items-end pb-5">
-    <div class="about-hero-overlay"></div>
-    <div class="container position-relative z-1 text-center">
-      <p class="subtitle text-accent mb-3 ls-2 fw-semibold">
-        PASSION FOR THE OCEAN
-      </p>
-      <h1 class="display-3 fw-bold mb-0 font-outfit text-white">My Story</h1>
-    </div>
-  </header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/images/dive with afshin logo-02.png"
+            alt="Diving With Afshin Logo"
+            class="navbar-logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0 shadow-none collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3 gap-lg-5">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="packages.html">Packages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses.html">Courses</a>
+            </li>
 
-  <!-- Story Content -->
-    <section class="py-6" id="about-story">
-        <div class="container">
-            <div class="text-center mb-5">
-                <p class="subtitle text-accent mb-2 ls-2 fw-semibold">THE MISSION</p>
-                <h2 class="mb-4 fw-semibold fs-1 font-outfit text-white">Turned Passion Into Purpose</h2>
-            </div>
-
-            <div class="about-story-path">
-                <!-- Segment 1 -->
-                <div class="row align-items-center gy-5 mb-5 flex-lg-row-reverse animateElements">
-                    <div class="col-lg-6">
-                        <div class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
-                                alt="Diving Exploration" class="img-fluid w-100 about-story-img" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="how-card p-4 p-md-5">
-                            <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3">CHAPTER 01</span>
-                            <h3 class="h4 fw-bold font-outfit mb-3">The Call of the Sea</h3>
-                            <p class="text-light-muted opacity-75 fs-6 mb-0">
-                                What started as a career in business development eventually gave
-                                way to something far more meaningful: the call of the sea. I made
-                                the bold decision to follow that call and became a professional
-                                scuba diving instructor, dedicating my life to exploring and
-                                sharing the underwater world.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Segment 2 -->
-                <div class="row align-items-center gy-5 mb-5 animateElements">
-                    <div class="col-lg-6">
-                        <div class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
-                                alt="Scuba Certification" class="img-fluid w-100 about-story-img" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="how-card p-4 p-md-5">
-                            <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3">CHAPTER 02</span>
-                            <h3 class="h4 fw-bold font-outfit mb-3">A World of Connection</h3>
-                            <p class="text-light-muted opacity-75 fs-6 mb-0">
-                                Over the years, I’ve certified hundreds of divers across Southeast
-                                Asia and the Middle East, guiding people of all backgrounds into a
-                                world many have never experienced before. But for me, diving is
-                                more than just a skill—it’s a way to connect, to learn, and to
-                                truly disconnect from the noise of everyday life.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Segment 3 -->
-                <div class="row align-items-center gy-5 mb-5 flex-lg-row-reverse animateElements">
-                    <div class="col-lg-6">
-                        <div class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10">
-                            <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80"
-                                alt="Marine Ecosystem" class="img-fluid w-100 about-story-img" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="how-card p-4 p-md-5">
-                            <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3">CHAPTER 03</span>
-                            <h3 class="h4 fw-bold font-outfit mb-3">Marine Stewardship</h3>
-                            <p class="text-light-muted opacity-75 fs-6 mb-0">
-                                I’m deeply passionate about marine life and coral ecosystems, and
-                                I take pride in not just teaching diving, but inspiring awareness
-                                and respect for the ocean. Every dive is an opportunity to witness
-                                something extraordinary, and I believe everyone deserves to
-                                experience that feeling.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Segment 4 -->
-                <div class="row align-items-center gy-5 animateElements">
-                    <div class="col-lg-6">
-                        <div class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10">
-                            <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=800&q=80"
-                                alt="Daymaniyat Islands Trip" class="img-fluid w-100 about-story-img" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="how-card p-4 p-md-5">
-                            <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3">CHAPTER 04</span>
-                            <h3 class="h4 fw-bold font-outfit mb-3">Unforgettable Moments</h3>
-                            <p class="text-light-muted opacity-75 fs-6 mb-0">
-                                Whether it’s a first-time dive, a certification course, or a
-                                private boat trip to the stunning Daymaniyat Islands, my goal is
-                                simple: to create unforgettable moments and help people discover a
-                                deeper connection with the ocean.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Afshin Section -->
-    <section class="py-6 bg-darker position-relative overflow-hidden" id="about-afshin">
-        <div class="container position-relative z-1">
-            <div class="text-center mb-5">
-                <p class="subtitle text-accent mb-2 ls-2 fw-semibold">THE INSTRUCTOR</p>
-                <h2 class="mb-4 fw-bold display-5 font-outfit text-white">Meet Your Guide</h2>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-12 col-lg-7 animateElements">
-                    <div class="position-relative">
-                        <div class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10">
-                            <img src="https://plus.unsplash.com/premium_photo-1661894231701-fedef72e78ab?w=600&auto=format&fit=crop&q=60"
-                                alt="Afshin, Diving Instructor" class="img-fluid w-100 instructor-img" loading="lazy" />
-                        </div>
-                        <!-- Experience Badge -->
-                        <div class="about-instructor-badge">
-                            <p class="about-instructor-badge__title">HEAD INSTRUCTOR</p>
-                            <p class="about-instructor-badge__name">Afshin</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 animateElements">
-
-
-                    <div class="how-card p-4 p-md-5">
-                        <p class="text-light-muted opacity-75 mb-2 fs-6">
-                            I am an ocean lover who turned passion into purpose. What started as a career in business
-                            development eventually gave way to something far more meaningful: the call of the sea.
-                        </p>
-                        <p class="text-light-muted opacity-75 mb-2 fs-6">
-                            I made the bold decision to follow that call and became a professional scuba diving instructor,
-                            dedicating my life to exploring and sharing the underwater world. Over the years, I have
-                            certified hundreds of divers across Southeast Asia and the Middle East, guiding people of all
-                            backgrounds into a world many have never experienced before.
-                        </p>
-                        <p class="text-light-muted opacity-75 mb-2 fs-6">
-                            For me, diving is more than just a skill. It is a way to connect, to learn, and to truly
-                            disconnect from the noise of everyday life. I am deeply passionate about marine life and coral
-                            ecosystems, and I take pride in not just teaching diving, but also inspiring awareness and
-                            respect for the ocean.
-                        </p>
-                        <p class="text-light-muted opacity-75 mb-2 fs-6">
-                            Every dive is an opportunity to witness something extraordinary, and I believe everyone deserves
-                            to experience that feeling. Whether it is a first time dive, a certification course, or a
-                            private boat trip to the stunning Daymaniyat Islands, my goal is simple: to create unforgettable
-                            moments and help people discover a deeper connection with the ocean.
-                        </p>
-                        <p class="text-light-muted opacity-75 mb-3 fs-6">
-                            Because for me, there is no place more peaceful, more powerful, and more unifying than the sea.
-                        </p>
-                        <p class="text-light-muted opacity-75 mb-3 fs-6">
-                            Dive in and experience it for yourself.
-                        </p>
-
-                        <div class="row g-4 pt-3">
-                            <div class="col-sm-4">
-                                <div class="border-start border-accent border-opacity-25 ps-3">
-                                    <span class="d-block text-accent fw-bold h3 mb-0 ls-1 counter" data-target="10"
-                                        data-suffix="+">0</span>
-                                    <span class="text-light-muted fs-sm ls-1 fw-semibold">YEARS EXP.</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="border-start border-accent border-opacity-25 ps-3">
-                                    <span class="d-block text-accent fw-bold h3 mb-0 ls-1 counter" data-target="500"
-                                        data-suffix="+">0</span>
-                                    <span class="text-light-muted fs-sm ls-1 fw-semibold">STUDENTS</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="border-start border-accent border-opacity-25 ps-3">
-                                    <span class="d-block text-accent fw-bold h3 mb-0 ls-1">PADI</span>
-                                    <span class="text-light-muted fs-sm ls-1 fw-semibold">MASTER</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Journey Section -->
-    <section class="py-6 bg-dark-theme" id="journey">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-10 text-center">
-                    <p class="subtitle text-accent mb-2 ls-2 fw-semibold">THE JOURNEY</p>
-                    <h2 class="mb-4 fw-semibold fs-1 font-outfit">The Journey to Surface</h2>
-                </div>
-            </div>
-            <div class="row g-4 align-items-stretch">
-                <div class="col-xl-6">
-                    <div
-                        class="journey-card journey-image-card rounded-5 overflow-hidden border border-secondary border-opacity-10 position-relative">
-                        <img src="https://plus.unsplash.com/premium_photo-1661889099855-b44dc39e88c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZGl2aW5nfGVufDB8fDB8fHww"
-                            alt="Diving Origins" class="img-fluid w-100 object-fit-cover" loading="lazy" />
-                        <div class="journey-image-overlay text-white">
-                            <span class="journey-est d-inline-block text-accent mb-3 fw-semibold">EST. 2014</span>
-                            <h3 class="h4 fw-semibold mb-3">Origins</h3>
-                            <p class="mb-0 text-light-muted opacity-85 fs-6">
-                                Founded in a small coastal enclave, Afshin began as a community of breathwork enthusiasts
-                                seeking a
-                                deeper connection to the sea.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="journey-card journey-info-card p-4 p-md-5 rounded-5 h-100">
-                                <div class="d-flex align-items-start gap-3 mb-4">
-                                    <div
-                                        class="journey-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-rocket-takeoff fs-4"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="h4 fw-semibold mb-2">Expansion</h3>
-                                        <p class="text-light-muted opacity-85 mb-0 fs-6">
-                                            By 2018, Afshin had established a flagship center, pioneering breathwork
-                                            programs for professional
-                                            athletes and serious divers.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div
-                                            class="journey-stat-card p-4 rounded-4 h-100 d-flex flex-column justify-content-center">
-                                            <div class="d-flex align-items-center gap-3 mb-2">
-                                                <i class="bi bi-people text-accent fs-3"></i>
-                                                <span class="fs-1 fw-bold text-white ls-1 counter" data-target="12"
-                                                    data-suffix="k+">0</span>
-                                            </div>
-                                            <span class="text-light-muted opacity-75 fs-sm fw-semibold ls-1">DIVERS
-                                                TRAINED</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div
-                                            class="journey-stat-card p-4 rounded-4 h-100 d-flex flex-column justify-content-center">
-                                            <div class="d-flex align-items-center gap-3 mb-2">
-                                                <i class="bi bi-water text-accent fs-3"></i>
-                                                <span class="fs-1 fw-bold text-white ls-1 counter" data-target="45"
-                                                    data-suffix="m">0</span>
-                                            </div>
-                                            <span class="text-light-muted opacity-75 fs-sm fw-semibold ls-1">DEPTH
-                                                RECORD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Closing Statement -->
-    <section class="py-6 bg-darker text-center">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="cert-glass-panel py-5 px-4 p-md-5">
-                        <p class="subtitle text-accent mb-2 ls-2 fw-semibold">THE VISION</p>
-                        <h2 class="mb-4 fw-semibold fs-1 font-outfit">
-                            Experience it for yourself.
-                        </h2>
-                        <p class="lead text-light-muted opacity-75 mb-5 mx-auto" style="max-width: 700px;">
-                            Because for me, there is no place more peaceful, more powerful,
-                            and more unifying than the sea.
-                        </p>
-                        <a href="{{ route('contact') }}" class="btn btn-accent rounded-pill px-5 py-3 fw-medium">Get in
-                            Touch</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  <!-- Footer -->
-  <!-- Footer -->
-  <footer class="bg-darker pt-5 pb-4 border-top border-secondary border-opacity-25">
-    <div class="container">
-      <div class="row gy-4 mb-5">
-        <div class="col-lg-4 pe-lg-5">
-          <a href="index.html" class="d-inline-block mb-4">
-            <img src="assets/images/dive with afshin logo-02.png" alt="Diving With Afshin Logo" class="footer-logo" />
-          </a>
-          <p class="text-light-muted opacity-75 fs-sm pe-lg-4 mb-4">
-            Dedicated to safe, professional, and immersive underwater experiences in the Sultanate of Oman.
-          </p>
-          <div class="d-flex gap-3 nav-social">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div
+            class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start nav-social"
+          >
+            <a href="#" aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 offset-lg-1 col-md-6">
-          <h5 class="text-white mb-3 fs-5 fw-bold">Quick Links</h5>
-          <ul class="list-unstyled d-flex flex-column gap-2">
-            <li>
-              <a href="index.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Home</a>
-            </li>
-            <li>
-              <a href="about.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">About</a>
-            </li>
-            <li>
-              <a href="courses.html"
-                class="text-light-muted opacity-75 text-white-hover text-decoration-none">Courses</a>
-            </li>
-            <li>
-              <a href="#packages" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Packages</a>
-            </li>
-            <li>
-              <a href="gallery.html"
-                class="text-light-muted opacity-75 text-white-hover text-decoration-none">Gallery</a>
-            </li>
-            <li>
-              <a href="contact.html"
-                class="text-light-muted opacity-75 text-white-hover text-decoration-none">Contact</a>
-            </li>
-          </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="about-hero d-flex align-items-end pb-5">
+      <div class="about-hero-overlay"></div>
+      <div class="container position-relative z-1 text-center">
+        <p class="subtitle text-accent mb-3 ls-2 fw-semibold">
+          PASSION FOR THE OCEAN
+        </p>
+        <h1 class="display-3 fw-bold mb-0 font-outfit text-white">My Story</h1>
+      </div>
+    </header>
+
+    <!-- Story Content -->
+    <section class="py-6" id="about-story">
+      <div class="container">
+        <div class="text-center mb-5">
+          <p class="subtitle text-accent mb-2 ls-2 fw-semibold">THE MISSION</p>
+          <h2 class="mb-4 fw-semibold fs-1 font-outfit text-white">
+            Turned Passion Into Purpose
+          </h2>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="text-white mb-3 fs-5 fw-bold">Location</h5>
-          <address class="text-light-muted opacity-75 mb-3">
-            Al Mouj Marina,<br />
-            Muscat, Oman
-          </address>
-          <p class="text-light-muted opacity-75">
-            Available daily for private bookings and certifications.
+
+        <div class="about-story-path">
+          <!-- Segment 1 -->
+          <div
+            class="row align-items-center gy-5 mb-5 flex-lg-row-reverse animateElements"
+          >
+            <div class="col-lg-6">
+              <div
+                class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+                  alt="Diving Exploration"
+                  class="img-fluid w-100 about-story-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="how-card p-4 p-md-5">
+                <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3"
+                  >CHAPTER 01</span
+                >
+                <h3 class="h4 fw-bold font-outfit mb-3">The Call of the Sea</h3>
+                <p class="text-light-muted opacity-75 fs-6 mb-0">
+                  What started as a career in business development eventually
+                  gave way to something far more meaningful: the call of the
+                  sea. I made the bold decision to follow that call and became a
+                  professional scuba diving instructor, dedicating my life to
+                  exploring and sharing the underwater world.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segment 2 -->
+          <div class="row align-items-center gy-5 mb-5 animateElements">
+            <div class="col-lg-6">
+              <div
+                class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+                  alt="Scuba Certification"
+                  class="img-fluid w-100 about-story-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="how-card p-4 p-md-5">
+                <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3"
+                  >CHAPTER 02</span
+                >
+                <h3 class="h4 fw-bold font-outfit mb-3">
+                  A World of Connection
+                </h3>
+                <p class="text-light-muted opacity-75 fs-6 mb-0">
+                  Over the years, I’ve certified hundreds of divers across
+                  Southeast Asia and the Middle East, guiding people of all
+                  backgrounds into a world many have never experienced before.
+                  But for me, diving is more than just a skill—it’s a way to
+                  connect, to learn, and to truly disconnect from the noise of
+                  everyday life.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segment 3 -->
+          <div
+            class="row align-items-center gy-5 mb-5 flex-lg-row-reverse animateElements"
+          >
+            <div class="col-lg-6">
+              <div
+                class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80"
+                  alt="Marine Ecosystem"
+                  class="img-fluid w-100 about-story-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="how-card p-4 p-md-5">
+                <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3"
+                  >CHAPTER 03</span
+                >
+                <h3 class="h4 fw-bold font-outfit mb-3">Marine Stewardship</h3>
+                <p class="text-light-muted opacity-75 fs-6 mb-0">
+                  I’m deeply passionate about marine life and coral ecosystems,
+                  and I take pride in not just teaching diving, but inspiring
+                  awareness and respect for the ocean. Every dive is an
+                  opportunity to witness something extraordinary, and I believe
+                  everyone deserves to experience that feeling.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segment 4 -->
+          <div class="row align-items-center gy-5 animateElements">
+            <div class="col-lg-6">
+              <div
+                class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=800&q=80"
+                  alt="Daymaniyat Islands Trip"
+                  class="img-fluid w-100 about-story-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="how-card p-4 p-md-5">
+                <span class="text-accent fs-sm fw-bold ls-2 d-block mb-3"
+                  >CHAPTER 04</span
+                >
+                <h3 class="h4 fw-bold font-outfit mb-3">
+                  Unforgettable Moments
+                </h3>
+                <p class="text-light-muted opacity-75 fs-6 mb-0">
+                  Whether it’s a first-time dive, a certification course, or a
+                  private boat trip to the stunning Daymaniyat Islands, my goal
+                  is simple: to create unforgettable moments and help people
+                  discover a deeper connection with the ocean.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Afshin Section -->
+    <section
+      class="py-6 bg-darker position-relative overflow-hidden"
+      id="about-afshin"
+    >
+      <div class="container position-relative z-1">
+        <div class="text-center mb-5">
+          <p class="subtitle text-accent mb-2 ls-2 fw-semibold">
+            THE INSTRUCTOR
+          </p>
+          <h2 class="mb-4 fw-bold display-5 font-outfit text-white">
+            Meet Your Guide
+          </h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-lg-7 animateElements">
+            <div class="position-relative">
+              <div
+                class="img-wrapper rounded-5 overflow-hidden border border-secondary border-opacity-10"
+              >
+                <img
+                  src="https://plus.unsplash.com/premium_photo-1661894231701-fedef72e78ab?w=600&auto=format&fit=crop&q=60"
+                  alt="Afshin, Diving Instructor"
+                  class="img-fluid w-100 instructor-img"
+                  loading="lazy"
+                />
+              </div>
+              <!-- Experience Badge -->
+              <div class="about-instructor-badge">
+                <p class="about-instructor-badge__title">HEAD INSTRUCTOR</p>
+                <p class="about-instructor-badge__name">Afshin</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 animateElements">
+            <div class="how-card p-4 p-md-5">
+              <p class="text-light-muted opacity-75 mb-2 fs-6">
+                I am an ocean lover who turned passion into purpose. What
+                started as a career in business development eventually gave way
+                to something far more meaningful: the call of the sea.
+              </p>
+              <p class="text-light-muted opacity-75 mb-2 fs-6">
+                I made the bold decision to follow that call and became a
+                professional scuba diving instructor, dedicating my life to
+                exploring and sharing the underwater world. Over the years, I
+                have certified hundreds of divers across Southeast Asia and the
+                Middle East, guiding people of all backgrounds into a world many
+                have never experienced before.
+              </p>
+              <p class="text-light-muted opacity-75 mb-2 fs-6">
+                For me, diving is more than just a skill. It is a way to
+                connect, to learn, and to truly disconnect from the noise of
+                everyday life. I am deeply passionate about marine life and
+                coral ecosystems, and I take pride in not just teaching diving,
+                but also inspiring awareness and respect for the ocean.
+              </p>
+              <p class="text-light-muted opacity-75 mb-2 fs-6">
+                Every dive is an opportunity to witness something extraordinary,
+                and I believe everyone deserves to experience that feeling.
+                Whether it is a first time dive, a certification course, or a
+                private boat trip to the stunning Daymaniyat Islands, my goal is
+                simple: to create unforgettable moments and help people discover
+                a deeper connection with the ocean.
+              </p>
+              <p class="text-light-muted opacity-75 mb-3 fs-6">
+                Because for me, there is no place more peaceful, more powerful,
+                and more unifying than the sea.
+              </p>
+              <p class="text-light-muted opacity-75 mb-3 fs-6">
+                Dive in and experience it for yourself.
+              </p>
+
+              <div class="row g-4 pt-3">
+                <div class="col-sm-4">
+                  <div
+                    class="border-start border-accent border-opacity-25 ps-3"
+                  >
+                    <span
+                      class="d-block text-accent fw-bold h3 mb-0 ls-1 counter"
+                      data-target="10"
+                      data-suffix="+"
+                      >0</span
+                    >
+                    <span class="text-light-muted fs-sm ls-1 fw-semibold"
+                      >YEARS EXP.</span
+                    >
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div
+                    class="border-start border-accent border-opacity-25 ps-3"
+                  >
+                    <span
+                      class="d-block text-accent fw-bold h3 mb-0 ls-1 counter"
+                      data-target="500"
+                      data-suffix="+"
+                      >0</span
+                    >
+                    <span class="text-light-muted fs-sm ls-1 fw-semibold"
+                      >STUDENTS</span
+                    >
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div
+                    class="border-start border-accent border-opacity-25 ps-3"
+                  >
+                    <span class="d-block text-accent fw-bold h3 mb-0 ls-1"
+                      >PADI</span
+                    >
+                    <span class="text-light-muted fs-sm ls-1 fw-semibold"
+                      >MASTER</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="py-6 bg-dark-theme" id="journey">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-10 text-center">
+            <p class="subtitle text-accent mb-2 ls-2 fw-semibold">
+              THE JOURNEY
+            </p>
+            <h2 class="mb-4 fw-semibold fs-1 font-outfit">
+              The Journey to Surface
+            </h2>
+          </div>
+        </div>
+        <div class="row g-4 align-items-stretch">
+          <div class="col-xl-6">
+            <div
+              class="journey-card journey-image-card rounded-5 overflow-hidden border border-secondary border-opacity-10 position-relative"
+            >
+              <img
+                src="https://plus.unsplash.com/premium_photo-1661889099855-b44dc39e88c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZGl2aW5nfGVufDB8fDB8fHww"
+                alt="Diving Origins"
+                class="img-fluid w-100 object-fit-cover"
+                loading="lazy"
+              />
+              <div class="journey-image-overlay text-white">
+                <span
+                  class="journey-est d-inline-block text-accent mb-3 fw-semibold"
+                  >EST. 2014</span
+                >
+                <h3 class="h4 fw-semibold mb-3">Origins</h3>
+                <p class="mb-0 text-light-muted opacity-85 fs-6">
+                  Founded in a small coastal enclave, Afshin began as a
+                  community of breathwork enthusiasts seeking a deeper
+                  connection to the sea.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="row g-4">
+              <div class="col-12">
+                <div
+                  class="journey-card journey-info-card p-4 p-md-5 rounded-5 h-100"
+                >
+                  <div class="d-flex align-items-start gap-3 mb-4">
+                    <div
+                      class="journey-icon rounded-circle d-flex align-items-center justify-content-center"
+                    >
+                      <i class="bi bi-rocket-takeoff fs-4"></i>
+                    </div>
+                    <div>
+                      <h3 class="h4 fw-semibold mb-2">Expansion</h3>
+                      <p class="text-light-muted opacity-85 mb-0 fs-6">
+                        By 2018, Afshin had established a flagship center,
+                        pioneering breathwork programs for professional athletes
+                        and serious divers.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <div
+                        class="journey-stat-card p-4 rounded-4 h-100 d-flex flex-column justify-content-center"
+                      >
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                          <i class="bi bi-people text-accent fs-3"></i>
+                          <span
+                            class="fs-1 fw-bold text-white ls-1 counter"
+                            data-target="12"
+                            data-suffix="k+"
+                            >0</span
+                          >
+                        </div>
+                        <span
+                          class="text-light-muted opacity-75 fs-sm fw-semibold ls-1"
+                          >DIVERS TRAINED</span
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div
+                        class="journey-stat-card p-4 rounded-4 h-100 d-flex flex-column justify-content-center"
+                      >
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                          <i class="bi bi-water text-accent fs-3"></i>
+                          <span
+                            class="fs-1 fw-bold text-white ls-1 counter"
+                            data-target="45"
+                            data-suffix="m"
+                            >0</span
+                          >
+                        </div>
+                        <span
+                          class="text-light-muted opacity-75 fs-sm fw-semibold ls-1"
+                          >DEPTH RECORD</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Statement -->
+    <section class="py-6 bg-darker text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="cert-glass-panel py-5 px-4 p-md-5">
+              <p class="subtitle text-accent mb-2 ls-2 fw-semibold">
+                THE VISION
+              </p>
+              <h2 class="mb-4 fw-semibold fs-1 font-outfit">
+                Experience it for yourself.
+              </h2>
+              <p
+                class="lead text-light-muted opacity-75 mb-5 mx-auto"
+                style="max-width: 700px"
+              >
+                Because for me, there is no place more peaceful, more powerful,
+                and more unifying than the sea.
+              </p>
+              <a
+                href="{{ route('contact') }}"
+                class="btn btn-accent rounded-pill px-5 py-3 fw-medium"
+                >Get in Touch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer
+      class="bg-darker pt-5 pb-4 border-top border-secondary border-opacity-25"
+    >
+      <div class="container">
+        <div class="row gy-4 mb-5">
+          <div class="col-lg-4 pe-lg-5">
+            <a href="index.html" class="d-inline-block mb-4">
+              <img
+                src="assets/images/dive with afshin logo-02.png"
+                alt="Diving With Afshin Logo"
+                class="footer-logo"
+              />
+            </a>
+            <p class="text-light-muted opacity-75 fs-sm pe-lg-4 mb-4">
+              Dedicated to safe, professional, and immersive underwater
+              experiences in the Sultanate of Oman.
+            </p>
+            <div class="d-flex gap-3 nav-social">
+              <a href="#" aria-label="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" aria-label="WhatsApp"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 offset-lg-1 col-md-6">
+            <h5 class="text-white mb-3 fs-5 fw-bold">Quick Links</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="packages.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Packages</a
+                >
+              </li>
+              <li>
+                <a
+                  href="courses.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Courses</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="gallery.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-light-muted opacity-75 text-white-hover text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white mb-3 fs-5 fw-bold">Location</h5>
+            <address class="text-light-muted opacity-75 mb-3">
+              Al Mouj Marina,<br />
+              Muscat, Oman
+            </address>
+            <p class="text-light-muted opacity-75">
+              Available daily for private bookings and certifications.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="border-top border-secondary border-opacity-25 pt-4 text-center"
+        >
+          <p class="text-light-muted opacity-50 mb-0 copyright-text">
+            &copy; 2024 Diving With Afshin. All rights reserved.
           </p>
         </div>
       </div>
+    </footer>
 
-      <div class="border-top border-secondary border-opacity-25 pt-4 text-center">
-        <p class="text-light-muted opacity-50 mb-0 copyright-text">
-          &copy; 2024 Diving With Afshin. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/201234567890"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/201234567890" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="bi bi-whatsapp"></i>
-  </a>
-
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script src="assets/js/script.js"></script>
-</body>
-
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
