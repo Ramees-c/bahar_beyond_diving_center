@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Blog Details | Diving With Afshin</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    
+    <style>
+      .blog-detail-content p {
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        color: rgba(240, 244, 247, 0.85);
+        font-size: 1.05rem;
+      }
+      .blog-detail-content h3 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        color: var(--accent);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .blog-detail-content blockquote {
+        border-left: 4px solid var(--accent);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--text-primary);
+        font-size: 1.15rem;
+      }
+      .blog-detail-content ul, .blog-detail-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        color: rgba(240, 244, 247, 0.85);
+      }
+      .blog-detail-content li {
+        margin-bottom: 0.5rem;
+      }
+      .related-blog-card {
+        background: rgba(var(--bg-card-rgb), 0.3) !important;
+        border: 1px solid rgba(var(--text-primary-rgb), 0.05) !important;
+        border-radius: 1rem !important;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .related-blog-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(var(--accent-rgb), 0.2) !important;
+        background: rgba(var(--bg-card-rgb), 0.4) !important;
+      }
+      .share-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(var(--bg-card-rgb), 0.5);
+        border: 1px solid rgba(var(--text-primary-rgb), 0.08);
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+      .share-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.25);
+        color: var(--bg-darker) !important;
+      }
+      .share-btn.facebook:hover {
+        background: #1877f2;
+        border-color: #1877f2;
+      }
+      .share-btn.twitter:hover {
+        background: #000000;
+        border-color: #333333;
+        color: #ffffff !important;
+      }
+      .share-btn.whatsapp:hover {
+        background: #25d366;
+        border-color: #25d366;
+      }
+      .share-btn.copy:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+    </style>
+  </head>
+
+  <body class="bg-dark-theme text-white">
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+      <div class="loader-content">
+        <div class="loader-bubbles">
+          <span style="left: -30px; width: 20px; height: 20px; animation-delay: 0s"></span>
+          <span style="left: 50px; width: 12px; height: 12px; animation-delay: 0.4s"></span>
+          <span style="left: 10px; width: 16px; height: 16px; animation-delay: 1.2s"></span>
+          <span style="left: -60px; width: 10px; height: 10px; animation-delay: 1.8s;"></span>
+          <span style="left: 80px; width: 22px; height: 22px; animation-delay: 2.2s"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/images/dive with afshin logo-02.png"
+            alt="Diving With Afshin Logo"
+            class="navbar-logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler border-0 shadow-none collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3 gap-lg-5">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="packages.html">Packages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="blogs.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start nav-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="about-hero d-flex align-items-end pb-5">
+      <div class="about-hero-overlay"></div>
+      <div class="container position-relative z-1 text-center">
+        <h1 class="display-4 fw-bold mb-0 font-outfit text-white" id="blog-title">Loading Article...</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-6 bg-darker">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <div class="animateElements">
+              
+              <!-- Full Width Image Row -->
+              <div class="img-wrapper rounded-4 overflow-hidden shadow-lg border border-secondary border-opacity-10 mb-5">
+                <img
+                  id="blog-image"
+                  src=""
+                  alt="Blog Image"
+                  class="img-fluid w-100"
+                  style="max-height: 500px; object-fit: cover;"
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- Article Content -->
+              <div class="blog-detail-content mb-5" id="blog-body">
+                <!-- Content will be dynamically inserted here -->
+              </div>
+
+              <!-- Share Buttons -->
+              <div class="d-flex align-items-center gap-3 mt-5 flex-wrap">
+                <span class="text-light-muted fs-sm fw-semibold mb-0"><i class="bi bi-share me-2"></i>SHARE THIS INSIGHT:</span>
+                <div class="d-flex gap-2">
+                  <a href="#" class="share-btn facebook" id="share-facebook" target="_blank" aria-label="Share on Facebook">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a href="#" class="share-btn twitter" id="share-twitter" target="_blank" aria-label="Share on X">
+                    <i class="bi bi-twitter-x"></i>
+                  </a>
+                  <a href="#" class="share-btn whatsapp" id="share-whatsapp" target="_blank" aria-label="Share on WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
+                  </a>
+                  <button class="share-btn copy" id="share-copy" aria-label="Copy Link">
+                    <i class="bi bi-link-45deg"></i>
+                  </button>
+                </div>
+              </div>
+
+              <hr class="border-secondary border-opacity-25 my-5" />
+
+              <!-- Back to Blogs & CTA -->
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <a href="blogs.html" class="btn btn-outline-light rounded-pill px-4 py-2">
+                  <i class="bi bi-arrow-left me-2"></i>Back to Blogs
+                </a>
+                <a href="contact.html" class="btn btn-accent rounded-pill px-4 py-2">
+                  Book a Dive Trip with Afshin
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Posts Section -->
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-12">
+            <h3 class="font-outfit fw-bold text-white mb-4">Related Insights</h3>
+            <div class="row g-4" id="related-posts-grid">
+              <!-- Related posts inserted here -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darker pt-5 pb-4 border-top border-secondary border-opacity-25">
+      <div class="container">
+        <div class="row gy-4 mb-5">
+          <div class="col-lg-4 pe-lg-5">
+            <a href="index.html" class="d-inline-block mb-4">
+              <img
+                src="assets/images/dive with afshin logo-02.png"
+                alt="Diving With Afshin Logo"
+                class="footer-logo"
+              />
+            </a>
+            <p class="text-light-muted opacity-75 fs-sm pe-lg-4 mb-4">
+              Dedicated to safe, professional, and immersive underwater
+              experiences in the Sultanate of Oman.
+            </p>
+            <div class="d-flex gap-3 nav-social">
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 offset-lg-1 col-md-6">
+            <h5 class="text-white mb-3 fs-5 fw-bold">Quick Links</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+              <li>
+                <a href="index.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">About</a>
+              </li>
+              <li>
+                <a href="packages.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Packages</a>
+              </li>
+              <li>
+                <a href="courses.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Courses</a>
+              </li>
+              <li>
+                <a href="blogs.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Blogs</a>
+              </li>
+              <li>
+                <a href="gallery.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Gallery</a>
+              </li>
+              <li>
+                <a href="contact.html" class="text-light-muted opacity-75 text-white-hover text-decoration-none">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white mb-3 fs-5 fw-bold">Location</h5>
+            <address class="text-light-muted opacity-75 mb-3">
+              Al Mouj Marina,<br />
+              Muscat, Oman
+            </address>
+            <p class="text-light-muted opacity-75">
+              Available daily for private bookings and certifications.
+            </p>
+          </div>
+        </div>
+
+        <div class="border-top border-secondary border-opacity-25 pt-4 text-center">
+          <p class="text-light-muted opacity-50 mb-0 copyright-text">
+            &copy; 2024 Diving With Afshin. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/201234567890"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+
+    <!-- Dynamic Article Loading Script -->
+    <script>
+      const blogData = {
+        "1": {
+          title: "Diving the Daymaniyat Islands: Oman's Crown Jewel",
+          category: "Trip Report",
+          date: "July 12, 2026",
+          image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+          description: "Explore the magical underwater landscapes, vibrant coral gardens, and incredible marine biodiversity that make Daymaniyat Islands a world-class diving destination.",
+          content: `
+            <p class="lead">The Daymaniyat Islands are widely considered one of the premier diving spots in the Middle East. Located just off the coast of Muscat, this protected marine reserve consists of nine uninhabited islands surrounded by vibrant coral reefs and crystal-clear turquoise waters.</p>
+            <p>For scuba divers, the islands offer a treasure trove of underwater experiences. The reefs are incredibly healthy, supporting over a hundred species of soft and hard corals. As you descend, you'll be greeted by schools of colorful reef fish, curious sea turtles, and majestic leopard sharks resting on the sandy bottom.</p>
+            <h3>What Makes Daymaniyat Special?</h3>
+            <p>One of the unique features of the Daymaniyat Islands is the sheer variety of marine life. During the summer and autumn months, nutrient-rich currents rise, attracting gentle giants: whale sharks. Snorkeling or diving alongside these magnificent creatures is a bucket-list experience that draws ocean lovers from all over the world.</p>
+            <p>In addition to whale sharks, the islands are a vital nesting ground for hawksbill and green sea turtles. It's almost guaranteed that you'll spot several of these graceful reptiles gliding through the water or feeding on the reefs during your dives.</p>
+            <blockquote>"The silence of the deep waters combined with the vibrancy of the coral gardens makes Daymaniyat a sanctuary for both marine life and divers seeking escape."</blockquote>
+            <h3>Diving Conditions and Tips</h3>
+            <p>Diving at the Daymaniyat Islands is suitable for all experience levels. There are shallow bays perfect for beginners or PADI Open Water students, as well as deeper walls, drop-offs, and drift dives for advanced divers. Visibility is generally excellent, ranging from 15 to 30 meters depending on the time of year.</p>
+            <ul>
+              <li><strong>Best time to visit:</strong> October to May offers the most comfortable weather and superb visibility, while July to September is prime whale shark season.</li>
+              <li><strong>What to bring:</strong> An underwater camera is essential. The coral colors are incredibly vivid, and you'll want to capture the turtles and reefs.</li>
+              <li><strong>Conservation:</strong> The islands are a nature reserve, so it is strictly forbidden to touch the corals or disturb the marine life. Always practice good buoyancy control!</li>
+            </ul>
+          `
+        },
+        "2": {
+          title: "PADI Open Water Course: Prepare for Your First Dive",
+          category: "Diving Guide",
+          date: "July 08, 2026",
+          image: "https://images.unsplash.com/photo-1682687982502-1529b3b33f85?auto=format&fit=crop&w=1200&q=80",
+          description: "Everything you need to know before taking your first breaths underwater. Tips on breathing, mask clearing, and staying relaxed.",
+          content: `
+            <p class="lead">Taking your first breaths underwater is an experience you will never forget. If you've been dreaming of exploring the oceans, the PADI Open Water Diver course is the first step. Here's what you need to know to prepare for this life-changing certification.</p>
+            <p>The Open Water course is designed for absolute beginners. You don't need any prior diving experience—just a basic level of physical fitness and comfort in the water. The course is structured to build your confidence and skills gradually under the guidance of a professional instructor.</p>
+            <h3>What to Expect During the Course</h3>
+            <p>The PADI Open Water course consists of three main phases:</p>
+            <ol>
+              <li><strong>Knowledge Development:</strong> You'll learn the basic principles of scuba diving, including pressure, equipment operation, and safety protocols. This can be completed online via PADI eLearning before your trip.</li>
+              <li><strong>Confined Water Dives:</strong> These are pool or shallow beach sessions where you'll practice essential scuba skills like mask clearing, regulator recovery, and sharing air.</li>
+              <li><strong>Open Water Dives:</strong> The best part! You will complete four dives in the ocean to apply what you've learned and explore real dive sites.</li>
+            </ol>
+            <blockquote>"Scuba diving isn't about conquer; it's about connecting with an entirely different world and understanding our place within it."</blockquote>
+            <h3>Tips for Success</h3>
+            <p>Staying relaxed is the secret to a great dive. Remember, the regulator is designed to supply air whenever you breathe, so breathe slowly, deeply, and continuously. Never hold your breath while scuba diving.</p>
+            <p>Don't be afraid to ask questions. Your instructor is there to help you feel safe and comfortable. If a skill feels difficult, take your time—everyone learns at their own pace!</p>
+          `
+        },
+        "3": {
+          title: "Meeting the Giants: Swimming with Whale Sharks",
+          category: "Marine Life",
+          date: "June 28, 2026",
+          image: "https://images.unsplash.com/photo-1616690571314-555787931249?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTk2fHxkaXZpbmd8ZW58MHx8MHx8fDA%3D",
+          description: "Whale shark season in Oman is an unforgettable experience. Learn the best times to spot these gentle giants and how to interact with them responsibly.",
+          content: `
+            <p class="lead">Every year, the waters off Muscat become a migration hotspot for the largest fish in the sea: the whale shark. Swimming alongside these gentle, filter-feeding giants is a humbling, magical experience that stays with you forever.</p>
+            <p>Despite their massive size—growing up to 12 meters or more—whale sharks are completely harmless to humans. They feed primarily on plankton, microscopic plants, and small fish, cruising slowly near the surface with their wide mouths open to filter food from the water.</p>
+            <h3>The Best Time to Spot Whale Sharks in Oman</h3>
+            <p>The whale shark season in Oman typically runs from July to October. During this period, the sea temperature rises and plankton blooms are abundant, attracting dozens of sharks to the coastal waters around Muscat and the Daymaniyat Islands.</p>
+            <p>Because they swim close to the surface, you don't even need scuba gear to interact with them; snorkeling is often the best and least intrusive way to share the water with whale sharks.</p>
+            <blockquote>"Floating just a few meters away from a creature the size of a school bus, watching it glide effortlessly through the water, is a reminder of how magnificent our oceans truly are."</blockquote>
+            <h3>Code of Conduct for Ethical Interaction</h3>
+            <p>To protect these gentle giants, it's vital to follow strict guidelines during any encounter:</p>
+            <ul>
+              <li><strong>Do not touch:</strong> Whale sharks have a protective mucus layer on their skin, and touching them can cause stress or introduce harmful bacteria.</li>
+              <li><strong>Maintain distance:</strong> Stay at least 3 meters away from the body and 4 meters away from the tail to avoid accidental contact.</li>
+              <li><strong>No flash photography:</strong> Bright flashes can startle or blind the sharks. Natural light is more than enough near the surface.</li>
+              <li><strong>Do not block their path:</strong> Let the shark decide where it wants to swim. Never position yourself directly in front of them.</li>
+            </ul>
+          `
+        },
+        "4": {
+          title: "Understanding Coral Reef Ecosystems in Oman",
+          category: "Marine Life",
+          date: "June 15, 2026",
+          image: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=1200&q=80",
+          description: "An in-depth look at the diverse coral species found in Oman's waters, the threats they face, and how divers can help protect them.",
+          content: `
+            <p class="lead">Coral reefs are often called the rainforests of the sea, supporting over 25% of all marine life despite covering less than 1% of the ocean floor. In Oman, these underwater ecosystems are exceptionally unique, having adapted to extreme temperature fluctuations and high salinity.</p>
+            <p>Oman's waters are home to a remarkable diversity of corals, including massive brain corals, branching table corals, and colorful soft corals. These structures provide vital shelter, feeding grounds, and nurseries for thousands of species of fish, crustaceans, and mollusks.</p>
+            <h3>What Makes Oman's Reefs Unique?</h3>
+            <p>Unlike reefs in the tropical Pacific, corals in the Gulf of Oman must survive extreme summer temperatures and seasonal upwellings of cold, nutrient-rich water. This resilience has made Omani reefs a key subject of study for scientists researching coral adaptation to climate change.</p>
+            <p>Healthy corals also act as natural barriers, protecting coastal communities from erosion and storm surges while supporting local fishing and eco-tourism economies.</p>
+            <blockquote>"Corals are not rocks—they are complex colonies of living organisms. Protecting them is essential to preserving the balance of our global oceans."</blockquote>
+            <h3>How Divers Can Protect Coral Reefs</h3>
+            <p>As divers, we have a responsibility to act as stewards of the ocean. Here are some ways to protect reefs on every dive:</p>
+            <ul>
+              <li><strong>Master your buoyancy:</strong> The number one cause of recreational reef damage is divers accidentally kicking or touching corals with their fins.</li>
+              <li><strong>Secure your gear:</strong> Ensure your pressure gauge, octo, and accessories are tucked in and not dragging along the bottom.</li>
+              <li><strong>Use reef-safe sunscreen:</strong> Chemicals in traditional sunscreens can cause coral bleaching. Opt for mineral-based formulas.</li>
+              <li><strong>Participate in cleanups:</strong> Join marine debris removal dives to clear ghost nets and plastics from the reefs.</li>
+            </ul>
+          `
+        },
+        "5": {
+          title: "Essential Scuba Gear: What to Pack for Your Trip",
+          category: "Diving Guide",
+          date: "June 05, 2026",
+          image: "https://images.unsplash.com/photo-1596952687581-9bd164398339?auto=format&fit=crop&w=1200&q=80",
+          description: "A comprehensive packing checklist for scuba divers, highlighting what to bring, what to rent, and how to pack your gear safely.",
+          content: `
+            <p class="lead">Packing for a scuba diving vacation can be daunting. Balancing dive equipment, personal items, and weight limits requires careful planning. Here is our checklist of essential scuba gear to pack, rent, or leave at home for your next ocean adventure.</p>
+            <p>Whether you own a complete set of gear or plan to rent, some key items should always be in your bag for comfort, safety, and hygiene.</p>
+            <h3>The Must-Pack Essentials (Bring Your Own)</h3>
+            <p>If you own these items, we highly recommend packing them rather than renting:</p>
+            <ul>
+              <li><strong>Mask:</strong> A well-fitting mask is the difference between a relaxing dive and a frustrating one. Since fit is highly personal, always bring your own.</li>
+              <li><strong>Dive Computer:</strong> Your computer tracks your nitrogen absorption and safety stops. Knowing how to read and operate your own device is a critical safety practice.</li>
+              <li><strong>Regulator (optional but recommended):</strong> If you own a high-quality regulator, it's worth packing for comfort and peace of mind. Carry it in your hand luggage to protect it from damage.</li>
+              <li><strong>Logbook & Certification Card:</strong> Don't leave home without physical or digital proof of your certifications, as dive centers must verify them before letting you dive.</li>
+            </ul>
+            <blockquote>"Having the right gear, well-maintained and familiar to you, is key to staying relaxed and fully enjoying your underwater exploration."</blockquote>
+            <h3>What You Can Easily Rent</h3>
+            <p>If you want to travel light, most dive centers (including ours) offer high-quality rental gear including wetsuits, BCDs, regulators, fins, and weights. Let the dive center know your sizes in advance to ensure a perfect fit!</p>
+          `
+        },
+        "6": {
+          title: "Night Diving in Muscat: Exploring After Dark",
+          category: "Trip Report",
+          date: "May 22, 2026",
+          image: "https://images.unsplash.com/photo-1519327567471-ae47752b8089?auto=format&fit=crop&w=1200&q=80",
+          description: "As the sun sets, the ocean transforms. Discover the nocturnal creatures, bioluminescence, and unique thrills of night diving in Oman.",
+          content: `
+            <p class="lead">As the sun sets over the Gulf of Oman, the underwater world undergoes a complete transformation. Colorful reef fish seek shelter in the corals to sleep, while a cast of nocturnal creatures emerges from the shadows to hunt, feed, and interact in the dark.</p>
+            <p>Night diving is a thrill unlike any other. Guided by the beam of your dive light, your focus is narrowed to a small circle, highlighting colors and details that are often washed out during the day.</p>
+            <h3>Nocturnal Encounters</h3>
+            <p>During a night dive in Muscat, you can expect to see marine life that remains hidden during daylight:</p>
+            <ul>
+              <li><strong>Moray Eels:</strong> Free-swimming and hunting actively along the reef rather than peeking from crevices.</li>
+              <li><strong>Octopuses and Cuttlefish:</strong> Changing colors and textures as they stalk crabs and small fish.</li>
+              <li><strong>Crabs and Lobsters:</strong> Scuttling across the seabed in search of food.</li>
+              <li><strong>Sleeping Turtles:</strong> Wedged safely inside coral overhangs (be sure not to shine your light directly in their eyes to avoid waking them).</li>
+            </ul>
+            <blockquote>"Shining a light into the darkness reveals a secret world. Turn off your light for a moment, wave your hands, and watch the bioluminescent plankton glow like stars around you."</blockquote>
+            <h3>Safety Guidelines for Night Diving</h3>
+            <p>Night diving requires extra care and communication. Always dive with a buddy, stay close to your guide, carry a primary and backup dive light, and use slow, gentle hand signals to avoid blinding other divers.</p>
+          `
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Parse Query Parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id') || '1';
+        const article = blogData[articleId];
+
+        if (!article) {
+          // Fallback if ID doesn't exist
+          window.location.href = 'blogs.html';
+          return;
+        }
+
+        // Populate Article Fields
+        document.getElementById('page-title').textContent = `${article.title} | Diving With Afshin`;
+        document.getElementById('blog-title').textContent = article.title;
+        document.getElementById('blog-body').innerHTML = article.content;
+        
+        // Populate Hero Background Cover Image
+        const hero = document.querySelector('.about-hero');
+        if (hero) {
+          hero.style.backgroundImage = `url('${article.image}')`;
+          hero.style.backgroundSize = 'cover';
+          hero.style.backgroundPosition = 'center';
+        }
+        
+        // Populate Blog main image
+        const img = document.getElementById('blog-image');
+        if (img) {
+          img.src = article.image;
+          img.alt = article.title;
+        }
+
+        // Generate Related Posts (Random/Excluding Current)
+        const relatedGrid = document.getElementById('related-posts-grid');
+        const keys = Object.keys(blogData).filter(key => key !== articleId);
+        
+        // Take 3 random keys or just first 3 available
+        const selectedKeys = keys.slice(0, 3);
+        
+        selectedKeys.forEach(key => {
+          const item = blogData[key];
+          const col = document.createElement('div');
+          col.className = 'col-md-4';
+          col.innerHTML = `
+            <div class="blog-card card border-0 h-100">
+              <div class="blog-img-box">
+                <img src="${item.image}" alt="${item.title}" loading="lazy" />
+              </div>
+              <div class="blog-card-content">
+                <h3 class="blog-card-title">${item.title}</h3>
+                <p class="blog-card-text">${item.description}</p>
+                <div class="mt-auto">
+                  <a href="blog_detail.html?id=${key}" class="blog-card-link">
+                    Read Story <i class="bi bi-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+          relatedGrid.appendChild(col);
+        });
+
+        // Setup Share Link Actions
+        const currentUrl = encodeURIComponent(window.location.href);
+        const currentTitle = encodeURIComponent(article.title);
+
+        document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${currentTitle}`;
+        document.getElementById('share-whatsapp').href = `https://api.whatsapp.com/send?text=${currentTitle}%20${currentUrl}`;
+
+        document.getElementById('share-copy').addEventListener('click', () => {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            if (window.showPopupAlert) {
+              window.showPopupAlert('success', 'Article link copied to clipboard!');
+            } else {
+              alert('Link copied to clipboard!');
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

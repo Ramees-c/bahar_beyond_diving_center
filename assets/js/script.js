@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // Update content
             packageModal.querySelector('#modalPackageTitle').textContent = data.title;
             packageModal.querySelector('#modalPackagePrice').textContent = data.price;
-            packageModal.querySelector('#modalPackageLevel').textContent = data.level;
             packageModal.querySelector('#modalPackageDuration').textContent = data.duration;
             packageModal.querySelector('#modalPackageLocation').textContent = data.location;
             packageModal.querySelector('#modalPackageGroup').textContent = data.groupSize;
@@ -70,15 +69,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Navbar scroll effect
+    // Navbar scroll effect (show only when scrolling up)
     const navbar = document.getElementById('mainNav');
+    let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
+        const currentScrollY = window.scrollY;
+
+        // Add 'scrolled' class when scrolled past a threshold
+        if (currentScrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // Hide when scrolling down, show when scrolling up
+        const isMenuOpen = document.getElementById('navbarNav')?.classList.contains('show');
+        if (currentScrollY > lastScrollY && currentScrollY > 150 && !isMenuOpen) {
+            navbar.classList.add('hidden');
+        } else {
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollY = currentScrollY;
     });
 
     // Check initial scroll position
