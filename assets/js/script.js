@@ -69,97 +69,150 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Navbar scroll effect (show only when scrolling up)
+    // Lenis Smooth Scroll Initialization
+    let lenis = null;
+    if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 1.5,
+            infinite: false
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        window.lenis = lenis;
+    }
+
+    // Navbar Scroll Handling
     const navbar = document.getElementById('mainNav');
+    const navbarNav = document.getElementById('navbarNav');
     let lastScrollY = window.scrollY;
+    let isNavbarHovered = false;
 
-    window.addEventListener('scroll', function () {
-        const currentScrollY = window.scrollY;
+    if (navbar) {
+        navbar.addEventListener('mouseenter', function () {
+            if (window.matchMedia('(pointer: fine)').matches) {
+                isNavbarHovered = true;
+                navbar.classList.remove('hidden');
+            }
+        });
+        navbar.addEventListener('mouseleave', function () {
+            isNavbarHovered = false;
+        });
+    }
 
-        // Add 'scrolled' class when scrolled past a threshold
+    function handleNavbarScroll(currentScrollY) {
+        if (!navbar) return;
+
         if (currentScrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
 
-        // Hide when scrolling down, show when scrolling up
-        const isMenuOpen = document.getElementById('navbarNav')?.classList.contains('show');
-        if (currentScrollY > lastScrollY && currentScrollY > 150 && !isMenuOpen) {
+        const isMenuOpen = navbarNav?.classList.contains('show') || navbarNav?.classList.contains('collapsing');
+        const scrollDelta = currentScrollY - lastScrollY;
+
+        if (isMenuOpen) {
+            navbar.classList.remove('hidden');
+        } else if (isNavbarHovered && window.matchMedia('(pointer: fine)').matches) {
+            navbar.classList.remove('hidden');
+        } else if (scrollDelta > 10 && currentScrollY > 150) {
             navbar.classList.add('hidden');
-        } else {
+        } else if (scrollDelta < -5 || currentScrollY <= 150) {
             navbar.classList.remove('hidden');
         }
 
-        lastScrollY = currentScrollY;
-    });
-
-    // Check initial scroll position
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+        if (Math.abs(scrollDelta) > 5) {
+            lastScrollY = currentScrollY;
+        }
     }
 
-    // Smooth scroll for anchor links
+    // Hook scroll updates to Lenis or window scroll
+    if (lenis) {
+        lenis.on('scroll', (e) => {
+            handleNavbarScroll(e.scroll);
+        });
+    } else {
+        window.addEventListener('scroll', function () {
+            handleNavbarScroll(window.scrollY);
+        });
+    }
+
+    // Initial scroll check
+    handleNavbarScroll(window.scrollY);
+
+    // Smooth Scroll for Anchor Links with Lenis
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || !targetId) return;
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Close mobile menu if open
-                const navbarToggler = document.querySelector('.navbar-toggler');
+                e.preventDefault();
+
                 const navbarCollapse = document.querySelector('.navbar-collapse');
+                const navbarToggler = document.querySelector('.navbar-toggler');
 
-                const offset = 80;
                 const scrollToTarget = () => {
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    if (lenis) {
+                        lenis.scrollTo(targetElement, { offset: -80, duration: 1.2 });
+                    } else {
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - 80;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
                 };
 
-                if (navbarCollapse.classList.contains('show')) {
-                    // If menu is open, close it and then scroll after it's hidden
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                     navbarCollapse.addEventListener('hidden.bs.collapse', function handler() {
                         scrollToTarget();
-                        navbarCollapse.removeEventListener('hidden.bs.collapse', handler); // Remove listener after use
+                        navbarCollapse.removeEventListener('hidden.bs.collapse', handler);
                     });
-                    navbarToggler.click(); // Trigger collapse
+                    if (navbarToggler) navbarToggler.click();
                 } else {
-                    // If menu is not open, scroll immediately
                     scrollToTarget();
                 }
             }
         });
     });
 
-
-    // Add smooth reveal animations with stagger effect
-    const animateElements = document.querySelectorAll('.card, .icon-box, .img-wrapper, .accordion-item, .how-card, .cert-card, .contact-method-card, .contact-glass-form, .subtitle, h2, .journey-card, .journey-stat-card, .cert-glass-panel, .gallery-card, .animateElements');
-
-    // Set initial state
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = 'opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1)';
+    // Pause Lenis when Bootstrap modals are opened, resume when hidden
+    document.addEventListener('show.bs.modal', function () {
+        if (lenis) lenis.stop();
+    });
+    document.addEventListener('hidden.bs.modal', function () {
+        if (lenis) lenis.start();
     });
 
-    let delayCounter = 0;
-    let delayTimer = null;
+    // Mobile navbar collapse event handlers
+    if (navbarNav) {
+        navbarNav.addEventListener('show.bs.collapse', function () {
+            if (lenis) lenis.stop();
+            navbar?.classList.remove('hidden');
+        });
+        navbarNav.addEventListener('hidden.bs.collapse', function () {
+            if (lenis) lenis.start();
+            isNavbarHovered = false;
+        });
+    }
 
+    // Counter animation function
     function startCounter(el) {
         if (el.dataset.started) return;
         el.dataset.started = 'true';
 
         const target = +el.getAttribute('data-target');
         const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 1500; // Animation duration in ms
+        const duration = 1500;
         const startTime = performance.now();
 
         function update(currentTime) {
@@ -178,43 +231,55 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(update);
     }
 
+    // Scroll Reveal Intersection Observer with Staggering
+    const animateElements = document.querySelectorAll(
+        '.card, .icon-box, .img-wrapper, .accordion-item, .how-card, .cert-card, .contact-method-card, .contact-glass-form, .subtitle, h2, .journey-card, .journey-stat-card, .cert-glass-panel, .gallery-card, .animateElements, [data-animate], .scroll-reveal'
+    );
+
+    animateElements.forEach(el => {
+        if (!el.hasAttribute('data-animate') && !el.classList.contains('scroll-reveal')) {
+            el.setAttribute('data-animate', 'fade-up');
+        }
+    });
+
+    let delayCounter = 0;
+    let delayTimer = null;
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Apply a stagger delay for elements that appear at the same time
-                const delay = delayCounter * 100; // 100ms stagger between elements
-                entry.target.style.transitionDelay = `${delay}ms`;
+                const el = entry.target;
+                const customDelay = el.getAttribute('data-delay');
+                const delay = customDelay ? parseInt(customDelay, 10) : delayCounter * 90;
 
-                // Trigger the reveal animation
+                el.style.transitionDelay = `${delay}ms`;
+
                 requestAnimationFrame(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    el.classList.add('is-revealed');
 
-                    // Start counter for any .counter elements found within the revealing container
-                    entry.target.querySelectorAll('.counter').forEach(counter => {
+                    el.querySelectorAll('.counter').forEach(counter => {
                         startCounter(counter);
                     });
+                    if (el.classList.contains('counter')) {
+                        startCounter(el);
+                    }
                 });
 
-                observer.unobserve(entry.target);
-
+                observer.unobserve(el);
                 delayCounter++;
 
-                // Reset the counter when the burst of intersections is over
                 clearTimeout(delayTimer);
                 delayTimer = setTimeout(() => {
                     delayCounter = 0;
-                }, 100);
+                }, 120);
             }
         });
     }, {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px"
     });
 
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
+    animateElements.forEach(el => observer.observe(el));
 
     // Testimonials Slider Initialization
     if (document.querySelector('.testimonials-swiper')) {
@@ -326,77 +391,93 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Popup Alert (centered, styled, with OK button)
-    window.showPopupAlert = function(type, message, options = {}) {
-        const existing = document.getElementById('custom-popup-alert');
-        if (existing) existing.remove();
+    if (!window.showPopupAlert) {
+        window.showPopupAlert = function(type, message, options = {}) {
+            if (typeof type === 'object' && type !== null) {
+                options = type;
+                message = options.title || options.message || options.text || '';
+                type = options.icon || options.type || 'info';
+            } else if (typeof type === 'string' && typeof message === 'undefined') {
+                message = type;
+                type = 'info';
+            }
 
-        const overlay = document.createElement('div');
-        overlay.id = 'custom-popup-alert';
-        overlay.style.position = 'fixed';
-        overlay.style.inset = '0';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.style.zIndex = '2000';
-        overlay.style.background = 'rgba(var(--bg-darker-rgb, 6, 11, 15), 0)';
-        overlay.style.transition = 'background 300ms cubic-bezier(0.4, 0, 0.2, 1)';
+            const existing = document.getElementById('custom-popup-alert');
+            if (existing) existing.remove();
 
-        const panel = document.createElement('div');
-        panel.setAttribute('role', 'alertdialog');
-        panel.setAttribute('aria-modal', 'true');
-        panel.style.minWidth = '280px';
-        panel.style.maxWidth = '480px';
-        panel.style.background = 'rgba(var(--bg-card-rgb, 20, 56, 64), 0.6)';
-        panel.style.backdropFilter = 'blur(20px) saturate(150%)';
-        panel.style.webkitBackdropFilter = 'blur(20px) saturate(150%)';
-        panel.style.borderRadius = '1.5rem'; // 24px
-        panel.style.padding = '2rem';
-        panel.style.border = '1px solid rgba(var(--accent-rgb, 93, 211, 232), 0.15)';
-        panel.style.boxShadow = '0 20px 50px rgba(0,0,0,0.4)';
-        panel.style.textAlign = 'center';
-        panel.style.transform = 'translateY(20px)';
-        panel.style.opacity = '0';
-        panel.style.transition = 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)';
+            const overlay = document.createElement('div');
+            overlay.id = 'custom-popup-alert';
+            overlay.style.position = 'fixed';
+            overlay.style.inset = '0';
+            overlay.style.display = 'flex';
+            overlay.style.alignItems = 'center';
+            overlay.style.justifyContent = 'center';
+            overlay.style.zIndex = '2000';
+            overlay.style.background = 'rgba(var(--bg-darker-rgb, 6, 11, 15), 0)';
+            overlay.style.transition = 'background 300ms cubic-bezier(0.4, 0, 0.2, 1)';
 
-        const colors = {
-            success: {bg: 'rgba(var(--accent-rgb, 93, 211, 232), 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: 'var(--accent, #5dd3e8)'},
-            error: {bg: 'rgba(255, 107, 107, 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: '#ff6b6b'},
-            info: {bg: 'rgba(var(--accent-secondary-rgb, 42, 157, 181), 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: 'var(--accent-secondary, #2a9db5)'}
-        };
+            const panel = document.createElement('div');
+            panel.setAttribute('role', 'alertdialog');
+            panel.setAttribute('aria-modal', 'true');
+            panel.style.minWidth = '280px';
+            panel.style.maxWidth = '480px';
+            panel.style.background = 'rgba(var(--bg-card-rgb, 20, 56, 64), 0.6)';
+            panel.style.backdropFilter = 'blur(20px) saturate(150%)';
+            panel.style.webkitBackdropFilter = 'blur(20px) saturate(150%)';
+            panel.style.borderRadius = '1.5rem'; // 24px
+            panel.style.padding = '2rem';
+            panel.style.border = '1px solid rgba(var(--accent-rgb, 93, 211, 232), 0.15)';
+            panel.style.boxShadow = '0 20px 50px rgba(0,0,0,0.4)';
+            panel.style.textAlign = 'center';
+            panel.style.transform = 'translateY(20px)';
+            panel.style.opacity = '0';
+            panel.style.transition = 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)';
 
-        const cfg = colors[type] || colors.info;
+            const colors = {
+                success: {bg: 'rgba(var(--accent-rgb, 93, 211, 232), 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: 'var(--accent, #5dd3e8)'},
+                error: {bg: 'rgba(255, 107, 107, 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: '#ff6b6b'},
+                warning: {bg: 'rgba(255, 193, 7, 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: '#ffc107'},
+                info: {bg: 'rgba(var(--accent-secondary-rgb, 42, 157, 181), 0.1)', color: 'var(--text-primary, #f0f4f7)', accent: 'var(--accent-secondary, #2a9db5)'}
+            };
 
-        const iconWrap = document.createElement('div');
-        iconWrap.style.width = '56px';
-        iconWrap.style.height = '56px';
-        iconWrap.style.margin = '0 auto 1rem auto';
-        iconWrap.style.display = 'flex';
-        iconWrap.style.alignItems = 'center';
-        iconWrap.style.justifyContent = 'center';
-        iconWrap.style.borderRadius = '50%';
-        iconWrap.style.background = cfg.bg;
-        iconWrap.style.border = `1px solid ${cfg.accent}`;
+            const normalizedType = String(type).toLowerCase();
+            const cfg = colors[normalizedType] || colors.info;
 
-        const icon = document.createElement('div');
-        icon.innerHTML = type === 'success' ?
-            `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12.5l2 2 4-5" stroke="${cfg.accent}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>` :
-            `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9v4" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 17h.01" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-        iconWrap.appendChild(icon);
+            const iconWrap = document.createElement('div');
+            iconWrap.style.width = '56px';
+            iconWrap.style.height = '56px';
+            iconWrap.style.margin = '0 auto 1rem auto';
+            iconWrap.style.display = 'flex';
+            iconWrap.style.alignItems = 'center';
+            iconWrap.style.justifyContent = 'center';
+            iconWrap.style.borderRadius = '50%';
+            iconWrap.style.background = cfg.bg;
+            iconWrap.style.border = `1px solid ${cfg.accent}`;
 
-        const title = document.createElement('h4');
-        title.className = 'font-outfit';
-        title.style.margin = '0 0 0.5rem 0';
-        title.style.fontSize = '1.5rem';
-        title.style.fontWeight = '600';
-        title.style.color = 'var(--text-primary, #f0f4f7)';
-        title.textContent = type === 'success' ? 'Success' : (type === 'error' ? 'Error' : 'Info');
+            const icon = document.createElement('div');
+            if (normalizedType === 'success') {
+                icon.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12.5l2 2 4-5" stroke="${cfg.accent}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            } else if (normalizedType === 'warning') {
+                icon.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9v4" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 17h.01" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            } else {
+                icon.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9v4" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 17h.01" stroke="${cfg.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            }
+            iconWrap.appendChild(icon);
 
-        const text = document.createElement('p');
-        text.style.margin = '0 0 0 0';
-        text.style.fontSize = '1rem';
-        text.style.color = 'var(--text-muted, #8fa8b5)';
-        text.style.lineHeight = '1.6';
-        text.textContent = message || '';
+            const title = document.createElement('h4');
+            title.className = 'font-outfit';
+            title.style.margin = '0 0 0.5rem 0';
+            title.style.fontSize = '1.5rem';
+            title.style.fontWeight = '600';
+            title.style.color = 'var(--text-primary, #f0f4f7)';
+            title.textContent = options.customTitle || (normalizedType === 'success' ? 'Success' : (normalizedType === 'error' ? 'Error' : (normalizedType === 'warning' ? 'Warning' : 'Info')));
+
+            const text = document.createElement('p');
+            text.style.margin = '0 0 0 0';
+            text.style.fontSize = '1rem';
+            text.style.color = 'var(--text-muted, #8fa8b5)';
+            text.style.lineHeight = '1.6';
+            text.textContent = message || '';
 
         const actions = document.createElement('div');
         actions.style.marginTop = '18px';
@@ -453,6 +534,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         document.addEventListener('keydown', escHandler);
     };
+}
 
     // Contact Form Validation
     const contactForm = document.getElementById('contactForm');

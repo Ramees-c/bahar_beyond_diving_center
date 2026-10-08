@@ -1,5 +1,5 @@
 :root {
-    /* Dive With Afshin logo: dark teal + bright cyan on black */
+    
     --bg-dark: #0c1820;
     --bg-darker: #060b0f;
     --bg-card: #143840;
@@ -938,14 +938,14 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
 }
 
 .navbar-logo {
-    height: 90px;
+    height: 70px;
     width: auto;
     transition: height 0.3s ease;
     border-radius: 8px;
 }
 
 .navbar.scrolled .navbar-logo {
-    height: 70px;
+    height: 60px;
 }
 
 .navbar-nav .nav-link {
@@ -1100,6 +1100,16 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
     }
 }
 
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+}
+
 .hero-video {
     position: absolute;
     top: 0;
@@ -1131,6 +1141,7 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
     border: 1px solid rgba(var(--accent-rgb), 0.2);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .hero h1 {
@@ -1535,7 +1546,7 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
 
 /* Modern Footer */
 .footer-logo {
-    height: 90px;
+    height: 70px;
     width: auto;
     transition: height 0.3s ease;
     border-radius: 8px;
@@ -1974,7 +1985,7 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
         padding: 0.6rem 0 !important;
     }
     .navbar-logo {
-        height: 60px !important;
+        height: 50px !important;
     }
     .navbar-nav {
         gap: 1.5rem !important; /* Tighter spacing for 1024px width */
@@ -2029,15 +2040,15 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
     }
 
     .navbar-logo {
-        height: 70px;
+        height: 60px;
     }
 
     .footer-logo {
-        height: 70px;
+        height: 60px;
     }
 
     .navbar.scrolled .navbar-logo {
-        height: 60px;
+        height: 50px;
     }
 
     /* Custom Animated Toggler */
@@ -2264,15 +2275,15 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
 
 @media (max-width: 575.98px) {
     .navbar-logo {
-        height: 60px;
+        height: 50px;
     }
 
     .footer-logo {
-        height: 70px;
+        height: 60px;
     }
 
     .navbar.scrolled .navbar-logo {
-        height: 50px;
+        height: 40px;
     }
 
     .btn {
@@ -2355,6 +2366,9 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
 
 /* Course Detail Modal Styling */
 .course-modal {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
 }
@@ -3053,5 +3067,36 @@ section.py-6:nth-of-type(even):not(.bg-darker):not(.bg-dark-theme) {
         width: 28px;
         height: 28px;
     }
+}
+
+/* ==========================================================================
+   Video Player Customizations (Hide Audio/Mute button & 3-dot overflow menu)
+   ========================================================================== */
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-volume-slider-container,
+video::-webkit-media-controls-volume-control-container,
+video::-webkit-media-controls-volume-control-hover-wrapper {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+video::-webkit-media-controls-overflow-button,
+video::-webkit-media-controls-overflow-menu-list,
+video::-internal-media-controls-overflow-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
